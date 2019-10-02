@@ -224,6 +224,10 @@ public class HUD {
 	public void setScore(int score) {
 		this.score += score;
 	}
+
+	public void resetScore() {
+		this.score = 00000000000;
+	}
 	
 	public double getHealth(){
 		return health;
