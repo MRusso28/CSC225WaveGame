@@ -295,7 +295,7 @@ public class Menu {
 			g.drawString("Main", 920, 910);
 
 		} else if (game.gameState == STATE.Help) { // if the user clicks on "leaderboard"
-			hud.getLeadeboard();
+			hud.getLeaderboard();
 		}
 	}
 }
