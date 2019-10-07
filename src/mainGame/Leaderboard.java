@@ -50,10 +50,7 @@ public class Leaderboard {
 			g.drawString(newEntry,Game.WIDTH / 2 - getTextWidth(font2,newEntry)/2, Game.HEIGHT/2 + (50*i));
 		}
 	}
-	
-	public void instantiateLeaderboard() {
-		
-	}
+
 
 	/**
 	 * Function for getting the pixel width of text
