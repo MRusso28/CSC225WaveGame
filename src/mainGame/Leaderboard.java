@@ -21,6 +21,7 @@ public class Leaderboard {
 	private int timer;
 	private Color retryColor;
 	private String text;
+	private int counter;
 
 	public Leaderboard(Game game, Handler handler, HUD hud) throws MalformedURLException {
 		this.game = game;
@@ -48,6 +49,10 @@ public class Leaderboard {
 			String newEntry = leaderboard.get(i);
 			g.drawString(newEntry,Game.WIDTH / 2 - getTextWidth(font2,newEntry)/2, Game.HEIGHT/2 + (50*i));
 		}
+	}
+	
+	public void instantiateLeaderboard() {
+		
 	}
 
 	/**
