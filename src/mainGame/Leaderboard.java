@@ -45,8 +45,8 @@ public class Leaderboard {
 		ArrayList<String> leaderboard = hud.getLeaderboard();
 		
 		for (int i = 0; i < leaderboard.size(); i++){
-			text = leaderboard.get(i);
-			g.drawString(text,Game.WIDTH / 2 - getTextWidth(font2,text)/2, Game.HEIGHT/2 + (50*i));
+			String newEntry = leaderboard.get(i);
+			g.drawString(newEntry,Game.WIDTH / 2 - getTextWidth(font2,newEntry)/2, Game.HEIGHT/2 + (50*i));
 		}
 	}
 
