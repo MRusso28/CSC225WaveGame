@@ -41,7 +41,6 @@ public class Leaderboard {
 		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font, text) / 2, Game.HEIGHT / 2 - 150);
 		g.setFont(font2);
 		
-		hud.setLeaderboard();
 		ArrayList<String> leaderboard = hud.getLeaderboard();
 		
 		for (int i = 0; i < leaderboard.size(); i++){
