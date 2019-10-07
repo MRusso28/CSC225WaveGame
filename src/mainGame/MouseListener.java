@@ -68,7 +68,8 @@ public class MouseListener extends MouseAdapter {
 			game.setIsGameSaved(false);
 			MouseListener.setEasy(false);
 			
-		} else if (game.gameState == STATE.GameWon || game.gameState == STATE.GameWonEasy){ //is the game is won, or its the easy mode
+		}
+		else if (game.gameState == STATE.GameWon || game.gameState == STATE.GameWonEasy){ //is the game is won, or its the easy mode
 			System.out.println("ass and titties");
 			handler.object.clear();
 			upgrades.resetUpgrades();
@@ -124,9 +125,12 @@ public class MouseListener extends MouseAdapter {
 			if (mouseOver(mx, my, 1050, 300, 350, 400)) {
 				handler.object.clear();
 				game.gameState = STATE.Game;
-				
-				
+
 				if(game.getIsGameSaved()){
+					game.setSavedGameStats();
+				}
+				else
+				{
 					game.setGameStats();
 				}
 

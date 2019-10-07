@@ -169,15 +169,18 @@ public class Game extends Canvas implements Runnable {
 	 * The thread is simply a programs path of execution. This method ensures
 	 * that this thread starts properly.
 	 */
-	
-	//This sets the game stats when the user goes into the wave game mode, takes stuff from the saved game
+	//set game stats for new game
 	public void setGameStats(){
-		
+		hud.resetScore();
+	}
+
+	//This sets the game stats when the user goes into the wave game mode, takes stuff from the saved game
+	public void setSavedGameStats(){
+
 		hud.setLevel(savedGame.getLevel());
 		hud.setHealth(savedGame.getHealth());
 		hud.setScore(savedGame.getScore());
-		
-		
+
 		if(savedGame.getLevel() <= 10){
 			spawner.setLevelsRemaining(savedGame.getLevelsRem());
 			spawner.setLevelNumber(savedGame.getEnemy());
@@ -246,12 +249,7 @@ public class Game extends Canvas implements Runnable {
 		
 
 	}
-	
-	
-	
-	
-	
-	
+
 	public synchronized void stop() {
 		try {
 			thread.join();
