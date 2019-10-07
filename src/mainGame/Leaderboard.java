@@ -37,10 +37,11 @@ public class Leaderboard {
 		Font font = new Font("Amoebic", 1, 100);
 		Font font2 = new Font("Amoebic", 1, 40);
 		g.setFont(font);
-		text = "Leaderboard";
+		text = "Leaderboard:";
 		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font, text) / 2, Game.HEIGHT / 2 - 150);
 		g.setFont(font2);
 		
+		hud.setLeaderboard();
 		ArrayList<String> leaderboard = hud.getLeaderboard();
 		
 		for (int i = 0; i < leaderboard.size(); i++){
