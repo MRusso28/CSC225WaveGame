@@ -30,7 +30,7 @@ public class Leaderboard {
 		this.retryColor = Color.white;
 	}
 
-	public void tick(){
+	public void tick() {
 		handler.clearPlayer();
 	}
 
