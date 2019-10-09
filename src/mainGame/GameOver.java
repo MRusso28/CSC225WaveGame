@@ -48,7 +48,7 @@ public class GameOver {
 		String username = JOptionPane.showInputDialog("Enter a username to submit your score!");
 		
 		String Highscore = new String();
-		Highscore = username+" "+hud.getScore();
+		Highscore = hud.getScore()+" "+username;
 		
 		hud.addLeaderboard(Highscore);
 	}

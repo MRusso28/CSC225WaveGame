@@ -8,6 +8,7 @@ import java.awt.geom.AffineTransform;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -45,16 +46,28 @@ public class Leaderboard {
 		g.setFont(font2);
 		
 		ArrayList<String> leaderboard = hud.getLeaderboard();
-
-		Collections.sort(leaderboard);
+		
+		Collections.sort(leaderboard, new NumericalStringComparator().reversed());
 		
 		for (int i = 0; i < leaderboard.size(); i++){
 			String newEntry = leaderboard.get(i);
 			g.drawString(newEntry,Game.WIDTH / 2 - getTextWidth(font2,newEntry)/2, Game.HEIGHT/2 + (50*i));
 		}
 	}
-
-
+	
+	public class NumericalStringComparator implements Comparator<String> {
+	    @Override
+	    public int compare (String s1, String s2) {
+	        int i1 = Integer.parseInt(s1.split(" ")[0]);
+	        int i2 = Integer.parseInt(s2.split(" ")[0]);
+	        int cmp = Integer.compare(i1, i2);
+	        if (cmp != 0) {
+	            return cmp;
+	        }
+	        return s1.compareTo(s2);
+	    }
+	}
+	
 	/**
 	 * Function for getting the pixel width of text
 	 * 
