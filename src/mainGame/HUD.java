@@ -291,7 +291,7 @@ public class HUD {
 	}
 	
 	public void setLeaderboard() {
-		leaderboard = new ArrayList<String>(10);
+		leaderboard = new ArrayList<String>();
 	}
 	
 	public ArrayList<String> getLeaderboard(){
