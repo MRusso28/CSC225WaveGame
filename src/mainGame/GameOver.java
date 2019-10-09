@@ -49,6 +49,8 @@ public class GameOver {
 		
 		String Highscore = new String();
 		Highscore = username+" "+hud.getScore();
+		
+		hud.addLeaderboard(Highscore);
 	}
 
 	public void tick(){
