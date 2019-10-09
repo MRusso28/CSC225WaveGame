@@ -7,6 +7,8 @@ import java.awt.font.FontRenderContext;
 import java.awt.geom.AffineTransform;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -43,6 +45,8 @@ public class Leaderboard {
 		g.setFont(font2);
 		
 		ArrayList<String> leaderboard = hud.getLeaderboard();
+
+		Collections.sort(leaderboard);
 		
 		for (int i = 0; i < leaderboard.size(); i++){
 			String newEntry = leaderboard.get(i);
