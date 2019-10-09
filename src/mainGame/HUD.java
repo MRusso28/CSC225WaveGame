@@ -46,6 +46,7 @@ public class HUD {
 	private int numClear=0;
 	private double regenValue = 0;
 	private ArrayList<String> leaderboard;
+	private ArrayList<String> savedLeaderboard;
 
 	public int getNumClear() {
 		return numClear;
@@ -302,5 +303,13 @@ public class HUD {
 	
 	public void addLeaderboard(String data) {
 		leaderboard.add(data);
+	}
+	
+	public void saveLeaderboard() {
+		savedLeaderboard = leaderboard;
+	}
+	
+	public ArrayList<String> loadLeaderboard(){
+		return savedLeaderboard;
 	}
 }
