@@ -301,25 +301,6 @@ public class HUD {
 	}
 	
 	public void addLeaderboard(String data) {
-		try {
-			if (leaderboard.isEmpty() == true) {
-				leaderboard.add(data);
-			}
-			Scanner scan = new Scanner(data);
-			int newScore = scan.nextInt();
-			System.out.println(newScore);
-			for (int i = 0; i < leaderboard.size(); i++) {
-				Scanner scan2 = new Scanner(leaderboard.get(i));
-				int oldScore = scan2.nextInt();
-				System.out.println(oldScore);
-			
-				if (newScore > oldScore) {
-					leaderboard.add(i, data);
-				}
-			}
-		}
-		catch (InputMismatchException e) {
-			System.out.print(e.getMessage());
-		}
+		leaderboard.add(data);
 	}
 }
