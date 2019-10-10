@@ -297,12 +297,12 @@ public class HUD {
 		leaderboard = new ArrayList<String>(10);
 	}
 	
-	public ArrayList<String> getLeaderboard(){
-		return leaderboard;
-	}
-	
 	public void addLeaderboard(String data) {
 		leaderboard.add(data);
+	}
+	
+	public ArrayList<String> getLeaderboard(){
+		return leaderboard;
 	}
 	
 	public void saveLeaderboard() {
