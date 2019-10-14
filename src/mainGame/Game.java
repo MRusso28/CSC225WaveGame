@@ -120,7 +120,8 @@ public class Game extends Canvas implements Runnable {
 		upgradeMidiPlayer = new Midi();
 		ShopMIDIPlayer = new Midi();
 		new Window((int) drawWidth, (int) drawHeight, "Wave Game ", this);
-		
+        hud.setLeaderboard();
+        hud.loadLeaderboard();
 		
 		socket = new SocketIO("http://tubbschat.com:3000/");
 		socket.connect(new IOCallback() {

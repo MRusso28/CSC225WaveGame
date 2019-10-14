@@ -7,6 +7,9 @@ import java.awt.font.FontRenderContext;
 import java.awt.geom.AffineTransform;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -21,6 +24,7 @@ public class Leaderboard {
 	private int timer;
 	private Color retryColor;
 	private String text;
+	private int counter;
 
 	public Leaderboard(Game game, Handler handler, HUD hud) throws MalformedURLException {
 		this.game = game;
@@ -29,7 +33,7 @@ public class Leaderboard {
 		this.retryColor = Color.white;
 	}
 
-	public void tick(){
+	public void tick() {
 		handler.clearPlayer();
 	}
 
@@ -37,18 +41,33 @@ public class Leaderboard {
 		Font font = new Font("Amoebic", 1, 100);
 		Font font2 = new Font("Amoebic", 1, 40);
 		g.setFont(font);
-		text = "Leaderboard";
+		text = "Leaderboard:";
 		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font, text) / 2, Game.HEIGHT / 2 - 150);
 		g.setFont(font2);
 		
 		ArrayList<String> leaderboard = hud.getLeaderboard();
 		
+		Collections.sort(leaderboard, new NumericalStringComparator().reversed());
+		
 		for (int i = 0; i < leaderboard.size(); i++){
-			text = leaderboard.get(i);
-			g.drawString(text,Game.WIDTH / 2 - getTextWidth(font2,text)/2, Game.HEIGHT/2 + (50*i));
+			String newEntry = leaderboard.get(i);
+			g.drawString(newEntry,Game.WIDTH / 2 - getTextWidth(font2,newEntry)/2, Game.HEIGHT/2 + (50*i));
 		}
 	}
-
+	
+	public class NumericalStringComparator implements Comparator<String> {
+	    @Override
+	    public int compare (String s1, String s2) {
+	        int int1 = Integer.parseInt(s1.split(" ")[0]);
+	        int int2 = Integer.parseInt(s2.split(" ")[0]);
+	        int comp = Integer.compare(int1, int2);
+	        if (comp != 0) {
+	            return comp;
+	        }
+	        return s1.compareTo(s2);
+	    }
+	}
+	
 	/**
 	 * Function for getting the pixel width of text
 	 * 
@@ -58,6 +77,7 @@ public class Leaderboard {
 	 *            the String of text
 	 * @return width in pixels of text
 	 */
+	
 	public int getTextWidth(Font font, String text) {
 		AffineTransform at = new AffineTransform();
 		FontRenderContext frc = new FontRenderContext(at, true, true);

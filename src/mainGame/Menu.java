@@ -294,6 +294,6 @@ public class Menu {
 			g.drawRect(850, 870, 200, 64);
 			g.drawString("Main", 920, 910);
 
-		}
+		} 
 	}
 }

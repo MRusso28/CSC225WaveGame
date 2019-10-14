@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  * The main Heads Up Display of the game
@@ -44,6 +46,7 @@ public class HUD {
 	private int numClear=0;
 	private double regenValue = 0;
 	private ArrayList<String> leaderboard;
+	private ArrayList<String> savedLeaderboard;
 
 	public int getNumClear() {
 		return numClear;
@@ -294,7 +297,23 @@ public class HUD {
 		
 	}
 	
+	public void setLeaderboard() {
+		leaderboard = new ArrayList<String>(10);
+	}
+	
+	public void addLeaderboard(String data) {
+		leaderboard.add(data);
+	}
+	
 	public ArrayList<String> getLeaderboard(){
 		return leaderboard;
+	}
+	
+	public void saveLeaderboard() {
+		savedLeaderboard = leaderboard;
+	}
+	
+	public ArrayList<String> loadLeaderboard(){
+		return savedLeaderboard;
 	}
 }
