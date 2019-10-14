@@ -149,26 +149,16 @@ public class Menu {
 			g.setColor(Color.white);
 			g.drawString("Leaderboard",1250, 900);
 			
-
-			/*g.setColor(Color.white);
-			g.drawRect(1440, 135, 400, 400);
+			
+			//Trying to add new button for CC.
+			//TO DO: Resize all the buttons on the many menu
+			
+			g.setColor(Color.white);
+			g.drawRect(80, 435, 850, 250);
 			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawString("Bosses", 1550, 215);*/
-
-			/*g.setColor(Color.white);
-			g.drawRect(990, 585, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Attack", 1095, 665);*/
-
-			/*g.setColor(Color.white);
-			g.drawRect(1440, 585, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Hunger", 1550, 665);*/
-
-
+			g.drawString("Character Customization",140, 600);
+						
 			g.setColor(Color.white);
 			g.drawRect(80, 135, 850, 250);
 			g.setFont(font);
@@ -176,16 +166,17 @@ public class Menu {
 			g.drawString("Help", 400, 280);
 
 			g.setColor(Color.white);
-			g.drawRect(80, 435, 850, 250);
-			g.setFont(font);
+			g.drawRect(80, 725, 400, 250);
+			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawString("Credits", 340, 600);
+			g.drawString("Credits", 140, 900);
 
 			g.setColor(Color.white);
-			g.drawRect(80, 735, 850, 250);
-			g.setFont(font);
+			g.drawRect(525, 725, 400, 250); // (Xtopleft, Ytopleft, width, height)
+			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawString("Quit", 400, 900);
+			g.drawString("Quit", 650, 900);
+			
 		} else if (game.gameState == STATE.Help) { // if the user clicks on "help"
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 30);
@@ -263,7 +254,7 @@ public class Menu {
 			
 			
 			
-		} else if (game.gameState == STATE.Help3){
+		} else if (game.gameState == STATE.Help3){ //Start here. Make an if statement to get to CC.
 			
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 30);
@@ -293,7 +284,52 @@ public class Menu {
 			
 			g.drawRect(850, 870, 200, 64);
 			g.drawString("Main", 920, 910);
+			
+			// Add new if else here for CC
+		} else if (game.gameState == STATE.CharacterCustomization){
+			
+			Font font = new Font("impact", 1, 50);
+			Font font2 = new Font("impact", 1, 30);
 
-		} 
+			g.setFont(font);
+			g.setColor(Color.white);
+			g.drawString("CharacterCustomization", 900, 70);
+			
+			//Should be the header of the game
+			g.setFont(font2);
+			g.drawString("Please pick your color.", 40, 200);
+			g.drawString("Select color by clicking on the color's name.", 40, 240);
+			
+			//Should go back Main Menu
+			g.drawRect(1600, 870, 200, 64); // (Xtopleft, Ytopleft, width, height)
+			g.drawString("Main Menu", 1650, 910);
+			
+			//List the type of colors
+			//g.drawRect(1600, 870, 200, 65);
+			g.drawString("Defalut", 600, 450); //White Color
+			g.setColor(Color.white);
+			g.fillRect(600, 500, 100, 100);
+			
+			//g.drawRect(1600, 870, 200, 65);
+			g.setColor(Color.red);
+			g.drawString("Red", 800, 450);
+			g.setColor(Color.red);
+			g.fillRect(800, 500, 100, 100);
+			
+			//g.drawRect(1600, 870, 200, 65);
+			g.setColor(Color.blue);
+			g.drawString("Blue", 1000, 450);
+			g.setColor(Color.blue);
+			g.fillRect(1000, 500, 100, 100);
+			
+			//g.drawRect(1600, 870, 200, 65);
+			g.setColor(Color.magenta);
+			g.drawString("Purple", 1200, 450);
+			g.setColor(Color.magenta);
+			g.fillRect(1200, 500, 100, 100);
+			
+			
+			
+		}
 	}
 }
