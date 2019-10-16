@@ -33,7 +33,7 @@ public class EnemyFast extends GameObject {
 			velX *= -1;
 		}
 
-		handler.addObject(new Trail(x, y, ID.Trail, Color.cyan, 16, 16, 0.025, this.handler));
+		handler.addObject(new Trail(x, y, ID.Trail, Color.cyan, 16, 16, 0.150, this.handler));
 
 	}
 

@@ -3,12 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="f6e99a91-1e26-403a-bebf-f79588cd2c90" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/EnemyBasic.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/EnemyBasic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/EnemyBurst.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/EnemyBurst.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/EnemyFast.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/EnemyFast.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/EnemyShooter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/EnemyShooter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/EnemyShooterBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/EnemyShooterBullet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/EnemySmart.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/EnemySmart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/EnemySweep.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/EnemySweep.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/mainGame/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/GameOver.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/GameOver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/mainGame/HUD.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/HUD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/mainGame/MouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/MouseListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainGame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainGame/HUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/HUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainGame/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/Leaderboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/Leaderboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/Pause.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/Pause.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/mainGame/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mainGame/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainGame/EnemyBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/EnemyBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainGame/EnemyBurst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/EnemyBurst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainGame/EnemyFast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/EnemyFast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainGame/EnemyShooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/EnemyShooter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainGame/EnemyShooterBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/EnemyShooterBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainGame/EnemySmart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/EnemySmart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainGame/EnemySweep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/EnemySweep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainGame/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainGame/Player.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +91,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

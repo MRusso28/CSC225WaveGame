@@ -58,7 +58,7 @@ public class EnemyBurst extends GameObject {
 		// if (this.y <= 0 || this.y >= Game.HEIGHT - 40) velY *= -1;
 		// if (this.x <= 0 || this.x >= Game.WIDTH - 16) velX *= -1;
 
-		handler.addObject(new Trail(x, y, ID.Trail, Color.orange, this.size, this.size, 0.025, this.handler));
+		handler.addObject(new Trail(x, y, ID.Trail, Color.orange, this.size, this.size, 0.200, this.handler));
 
 		timer--;
 		if (timer <= 0) {

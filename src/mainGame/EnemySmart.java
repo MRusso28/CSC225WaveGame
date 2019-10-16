@@ -46,7 +46,7 @@ public class EnemySmart extends GameObject {
 		// if (this.y <= 0 || this.y >= Game.HEIGHT - 40) velY *= -1;
 		// if (this.x <= 0 || this.x >= Game.WIDTH - 16) velX *= -1;
 
-		handler.addObject(new Trail(x, y, ID.Trail, Color.green, 16, 16, 0.025, this.handler));
+		handler.addObject(new Trail(x, y, ID.Trail, Color.green, 16, 16, 0.175, this.handler));
 
 	}
 
