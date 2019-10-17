@@ -88,7 +88,6 @@ public class Upgrades {
 
 	public void speedBoost() {
 		Player.playerSpeed *= 2;
-		Player.diagonalPlayerSpeed *= 2;
 	}
 
 	public String getAbility() {
