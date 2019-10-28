@@ -17,7 +17,6 @@ public class KeyInput extends KeyAdapter {
 	private Handler handler;
 	private boolean[] keyDown = new boolean[5];
 	private int speed;
-	private int diagonalSpeed;
 	private Game game;
 	private HUD hud;
 	private Player player;
@@ -30,7 +29,6 @@ public class KeyInput extends KeyAdapter {
 	public KeyInput(Pause pause, Handler handler, Game game, HUD hud, Player player, Spawn1to10 spawner, Upgrades upgrades) {
 		this.handler = handler;
 		this.speed = Player.playerSpeed;
-		this.diagonalSpeed = Player.diagonalPlayerSpeed;
 		this.game = game;
 		this.player = player;
 		this.hud = hud;
@@ -108,23 +106,23 @@ public class KeyInput extends KeyAdapter {
 				
 				//Up and Left
 				if (keyDown[0] == true && keyDown[1] == true) {
-					tempObject.setVelY(-(this.diagonalSpeed));
-					tempObject.setVelX(-(this.diagonalSpeed));
+					tempObject.setVelY(-(this.speed));
+					tempObject.setVelX(-(this.speed));
 				}
 				//Up and Right
 				if (keyDown[0] == true && keyDown[3] == true) {
-					tempObject.setVelY(-(this.diagonalSpeed));
-					tempObject.setVelX(this.diagonalSpeed);
+					tempObject.setVelY(-(this.speed));
+					tempObject.setVelX(this.speed);
 				}
 				//Down and Left
 				if (keyDown[2] == true && keyDown[1] == true) {
-					tempObject.setVelY(this.diagonalSpeed);
-					tempObject.setVelX(-(this.diagonalSpeed));
+					tempObject.setVelY(this.speed);
+					tempObject.setVelX(-(this.speed));
 				}
 				//Down and Right
 				if (keyDown[2] == true && keyDown[3] == true) {
-					tempObject.setVelY(this.diagonalSpeed);
-					tempObject.setVelX(this.diagonalSpeed);
+					tempObject.setVelY(this.speed);
+					tempObject.setVelX(this.speed);
 				}
 				/*
 				if ((key == KeyEvent.VK_W || key == KeyEvent.VK_UP) && keyDown[2] == true) {

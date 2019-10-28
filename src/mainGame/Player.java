@@ -29,7 +29,6 @@ public class Player extends GameObject {
 	private int playerWidth, playerHeight;
 	private int tempInvincible = 0;
 	public static int playerSpeed = 10;
-	public static int diagonalPlayerSpeed = 8;
 	private SimpleMidi hitsoundMIDIPlayer;
 	private String hitsoundMIDIMusic = "HitsoundPart2.mid";
 	private String pickupcoinMIDIMusic = "pickupcoin.mid";
