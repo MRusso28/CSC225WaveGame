@@ -187,19 +187,22 @@ public class Menu {
 			g.setColor(Color.white);
 			g.drawString("Quit", 400, 900);
 		} else if (game.gameState == STATE.Help) { // if the user clicks on "help"
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
+			Font font = new Font("Amoebic", 1, 50);
+			Font font2 = new Font("Amoebic", 1, 30);
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Help", 900, 70);
+			g.drawString("How To Play", 900, 70);
+			
 
 			g.setFont(font2);
-			g.drawString("Waves: Simply use Arrow keys or WASD to move and avoid enemies.", 40, 200);
-			g.drawString("One you avoid them long enough, a new batch will spawn in! Defeat each boss to win!", 40, 240);
+			g.drawString("In order to avoid enemies use the arrow keys or WASD keys to move around.", 40, 200);
+			g.drawString("You must collect coins while facing the enemies to increase your score.", 40, 240);
+			g.drawString("Use the coins you have collected to buy items from the Shop.", 40, 280);
 			
-			g.drawString("Press P to pause and un-pause", 40, 300);
-			g.drawString("Press Enter to use abilities when they have been equipped", 40, 340);
+			g.drawString("In order to access the Shop press P which will bring you to the pause menu.", 40, 320);
+			g.drawString("In order to exit the pause menu press P again.", 40, 370);
+			g.drawString("Press Enter to use abilities when they have been equipped", 40, 440);
 			
 			g.drawString("Click Next to see Enemy and Boss Summeries", 40, 800);
 
@@ -213,35 +216,35 @@ public class Menu {
 			g.drawString("Main", 920, 910);
 		} else if (game.gameState == STATE.Help2){ //second help page
 			
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
+			Font font = new Font("Amoebic", 1, 50);
+			Font font2 = new Font("Amoebic", 1, 30);
 			
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Different Enemies", 800, 70);
+			g.drawString("Type of Enemies", 800, 70);
 			
 			
 			g.setFont(font2);
-			g.drawString("1. Green. These will", 40, 200);
-			g.drawString("follow you where ever", 40, 240);
+			g.drawString("The Follower. They will", 40, 200);
+			g.drawString("follow you were ever", 40, 240);
 			g.drawString("you are on screen.", 40, 280);
 			
-			g.drawString("2. Red. These bounce", 400, 200);
-			g.drawString("of the walls at a", 400, 240);
-			g.drawString("45 degree angle", 400, 280);
+			g.drawString("Red Enemy.They ", 400, 200);
+			g.drawString("bounce off the walls at", 400, 240);
+			g.drawString("a 45 degree angle.", 400, 280);
 			
-			g.drawString("3. Cyan. These also", 750, 200);
-			g.drawString("bounce of walls but at", 750, 240);
+			g.drawString("Cyan. They bounce", 750, 200);
+			g.drawString("off the walls at", 750, 240);
 			g.drawString("a shallow angle", 750, 280);
 			
-			g.drawString("4. Yellow. These squares", 1100, 200);
+			g.drawString("Square Shooter. They ", 1100, 200);
 			g.drawString("shoot little bullets at", 1100, 240);
 			g.drawString("you to dodge", 1100, 280);
 			
 			
-			g.drawString("5. Burst. Warning flashes", 1500, 200);
+			g.drawString("Burst. Warning flashes", 1500, 200);
 			g.drawString("will appear from the side", 1500, 240);
-			g.drawString("they will jump out from", 1500, 280);
+			g.drawString("that they will appear from.", 1500, 280);
 			
 			g.setFont(font2);
 			g.setColor(Color.white);
@@ -265,8 +268,8 @@ public class Menu {
 			
 		} else if (game.gameState == STATE.Help3){
 			
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
+			Font font = new Font("Amoebic", 1, 50);
+			Font font2 = new Font("Amoebic", 1, 30);
 			
 			g.setFont(font);
 			g.setColor(Color.white);
@@ -275,8 +278,8 @@ public class Menu {
 			
 			g.setFont(font2);
 			g.drawString("The Red Boss. Dodge the", 40, 200);
-			g.drawString("explosive bullets that he", 40, 240);
-			g.drawString("throws and stay below the line.", 40, 280);
+			g.drawString("explosive bullets that gets", 40, 240);
+			g.drawString("thrown and stay below the line.", 40, 280);
 			
 			g.drawImage(boss1Img, 100, 340, 250, 250, null);
 			
@@ -294,6 +297,6 @@ public class Menu {
 			g.drawRect(850, 870, 200, 64);
 			g.drawString("Main", 920, 910);
 
-		} 
+		}
 	}
 }
