@@ -690,7 +690,8 @@ public class Spawn1to10 {
 			}
 		}
 	}
-public static int getRandomInteger(int maximum, int minimum){
+
+	public static int getRandomInteger(int maximum, int minimum){
 		
 		return ((int) (Math.random()*(maximum - minimum))) + minimum;
 		
