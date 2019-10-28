@@ -31,7 +31,7 @@ public class Player extends GameObject {
 	public static int playerSpeed = 10;
 	public static int diagonalPlayerSpeed = 8;
 	private SimpleMidi hitsoundMIDIPlayer;
-	private String hitsoundMIDIMusic = "HitsoundPart2.mid";
+	private String hitsoundMIDIMusic = "zapsplat_multimedia_game_show_buzzer_002_27374.mp3.mid";
 	private String pickupcoinMIDIMusic = "pickupcoin.mid";
 	private boolean wasHit;
 	
