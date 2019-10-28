@@ -29,6 +29,7 @@ public class Player extends GameObject {
 	private int playerWidth, playerHeight;
 	private int tempInvincible = 0;
 	public static int playerSpeed = 10;
+	public static int diagonalPlayerSpeed = 8;
 	private SimpleMidi hitsoundMIDIPlayer;
 	private String hitsoundMIDIMusic = "HitsoundPart2.mid";
 	private String pickupcoinMIDIMusic = "pickupcoin.mid";
@@ -53,7 +54,7 @@ public class Player extends GameObject {
 		x = Game.clamp(x, 0, Game.WIDTH - 38);
 		y = Game.clamp(y, 0, Game.HEIGHT - 60);
 		// add the trail that follows it
-		handler.addObject(new Trail(x, y, ID.Trail, Color.white, playerWidth, playerHeight, 0.05, this.handler));
+		handler.addObject(new Trail(x, y, ID.Trail, Color.white, playerWidth, playerHeight, 0.150, this.handler));
 		collision();
 		if (tempInvincible > 0) {
 			tempInvincible--;

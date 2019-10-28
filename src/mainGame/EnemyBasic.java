@@ -31,7 +31,7 @@ public class EnemyBasic extends GameObject {
 		if (this.x <= 0 || this.x >= Game.WIDTH - 16)
 			velX *= -1;
 
-		handler.addObject(new Trail(x, y, ID.Trail, Color.red, 16, 16, 0.025, this.handler));
+		handler.addObject(new Trail(x, y, ID.Trail, Color.red, 16, 16, 0.150, this.handler));
 
 	}
 
