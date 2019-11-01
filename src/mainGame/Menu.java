@@ -53,6 +53,9 @@ public class Menu {
 	private Image boss1Img;
 	private Image boss2Img;
 
+	/**
+	 * Constructor for Menu.
+	 */
 	public Menu(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
 		this.game = game;
 		this.handler = handler;
