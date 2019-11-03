@@ -50,7 +50,9 @@ public class GameOver {
 		String Highscore = new String();
 		Highscore = hud.getScore()+" "+username;
 		
+
 		hud.addLeaderboard(Highscore);
+		hud.setHighScore(Highscore);
 	}
 
 	public void tick(){

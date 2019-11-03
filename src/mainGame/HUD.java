@@ -192,7 +192,14 @@ public class HUD {
 		
 		if (this.highScoreString != null){
 			g.drawString("High Score:", 15, 950);
-			g.drawString(this.highScoreString, 15, 1000);
+			if (this.getLeaderboard().size() == 0)
+			{
+				g.drawString("0", 15, 1000);
+			}
+			else
+			{
+				g.drawString(this.getHighScore(), 15, 1000);
+			}
 		}
 
 		if (ability.equals("freezeTime")) {
@@ -290,15 +297,18 @@ public class HUD {
 
 	public void setHighScore(String data) {
 		
-		leaderboard = new ArrayList<String>(Arrays.asList(data.split(",")));
-		System.out.println(leaderboard.size());
+		String topLeaderboard = leaderboard.get(0);
 		
-		this.highScoreString = leaderboard.get(0);
+		this.highScoreString = topLeaderboard;
 		
 	}
 	
+	public String getHighScore() {
+		return highScoreString;
+	}
+	
 	public void setLeaderboard() {
-		leaderboard = new ArrayList<String>(10);
+		leaderboard = new ArrayList<String>();
 	}
 	
 	public void addLeaderboard(String data) {
