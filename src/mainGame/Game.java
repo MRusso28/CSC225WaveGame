@@ -60,7 +60,7 @@ public class Game extends Canvas implements Runnable {
 	private Midi menuMIDIPlayer;
 	private String menuMIDIMusic = "m64file_synth.mid";
 	private Midi gameMIDIPlayer;
-	private String gameMIDIMusic = "Summer Dance - AShamaluevMusic 2.mp3 copy 2.mid";
+	private String gameMIDIMusic = "Star-Wars-Theme-(From-'Star-Wars').mid";
 	private Midi bossMIDIPlayer;
 	private String bossMIDIMusic = "sm1castl_synth.mid";
 	private String ShopMIDIMusic = "Fresh-Prince-Belair.mid";
