@@ -165,8 +165,8 @@ public class HUD {
 		
 		Font font = new Font("Amoebic", 1, 30);
 		g.setColor(Color.GRAY);
-		g.fillRect(15, 15, healthBarWidth, 64);
-		g.setColor(new Color(75, (int) greenValue, 0));
+		g.fillRect(15, 15, healthBarWidth, 0);
+		g.setColor(new Color(75, (int) greenValue, 0, 230));
 		g.fillRect((int) 15, (int) 15, (int) health * 4, 64);
 		if (regen && health < healthMax)
 			g.setColor(regenColor);
