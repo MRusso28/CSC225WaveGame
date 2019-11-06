@@ -68,11 +68,10 @@ public class UpgradeScreen {
 		paths[1] = "images/decreaseplayersize.png";
 		paths[2] = "images/extralife.png";
 		paths[3] = "images/healthincrease.png";
-//		paths[4] = "images/healthregeneration.png";
+		paths[4] = "images/healthregeneration.png";
 		paths[5] = "images/improveddamageresistance.png";
 		paths[6] = "images/levelskipability.png";
 		paths[7] = "images/freezetimeability.png";
-		paths[8] = "images/speedboost.png";
 
 	}
 
