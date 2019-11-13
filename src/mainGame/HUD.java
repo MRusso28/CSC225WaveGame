@@ -19,10 +19,13 @@ public class HUD {
 	public double health = 100;
 	private double healthMax = 100;
 	private double greenValue = 255;
+	private double energy = 50;
+	private double energyMax = 50;
 	private int score = 00000000000;
 	private int level = 0;
 	private boolean regen = false;
 	private int timer = 10;
+	private int energyTimer = 10;
 	private int healthBarWidth = 400;
 	private double healthBarModifier = 2.5;
 	private boolean doubleHealth = false;
@@ -45,6 +48,7 @@ public class HUD {
 	private int numArmor=0;
 	private int numClear=0;
 	private double regenValue = 0;
+	private double energyRegenValue = 1;
 	private ArrayList<String> leaderboard;
 	private ArrayList<String> savedLeaderboard;
 
@@ -55,12 +59,21 @@ public class HUD {
 	public void setNumClear() {
 		this.numClear += 1;
 	}
+
 	public double getregenValue() {
 		return regenValue;
 	}
 
 	public void setregenValue() {
 		this.regenValue += .25;
+	}
+
+	public double getEnergyRegenValue() {
+		return energyRegenValue;
+	}
+
+	public void setEnergyRegenValue(double newValue) {
+		this.energyRegenValue = newValue;
 	}
 
 	public int getNumFreeze() {
@@ -135,15 +148,16 @@ public class HUD {
 	}
 
 	public void tick() {
-		health = Game.clamp(health, 0, health);
-		health = Game.clamp(health, 0, healthMax);
+		//health = Game.clamp(health, 0, health);
+		//health = Game.clamp(health, 0, healthMax);
 		greenValue = Game.clamp(greenValue, 0, 255);
 		greenValue = health * healthBarModifier;
-		
-		
-		
+
+		energy = Game.clamp(energy, 0, energy);
+		energy = Game.clamp(energy, 0, energyMax);
+
 		//each tick generate a random # and if that random number equals a specidied #, draw a coin
-		
+
 		if (regen) {// regenerates health if that ability has been unlocked
 			timer--;
 			if (timer == 0) {
@@ -152,11 +166,21 @@ public class HUD {
 			}
 			health = Game.clamp(health, 0, healthMax);
 		}
+
+		//Regen energy
+		energyTimer--;
+		if (energyTimer == 0) {
+			energy += this.energyRegenValue;
+			energyTimer = 10;
+		}
+		energy = Game.clamp(energy, 0, energyMax);
+
 	}
 	
 	public void reset(){
 		health = 100;
 		greenValue = 255;
+		energy = 50;
 		healthBarModifier = 2;
 	}
 
@@ -184,11 +208,15 @@ public class HUD {
 			g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
 		}
 
+
+		g.setColor(new Color(255,255,255, 200));
+		g.fillRect((int) 15, (int) 80, (int) energy * 4, 16);
+
 		g.setFont(font);
 		g.setColor(scoreColor);
-		g.drawString("Score: " + score, 15, 115);
-		g.drawString("Level: " + level, 15, 150);
-		g.drawString("Extra Lives: " + extraLives, 15, 185);
+		g.drawString("Score: " + score, 15, 150);
+		g.drawString("Level: " + level, 15, 185);
+		g.drawString("Extra Lives: " + extraLives, 15, 220);
 		
 		if (this.highScoreString != null){
 			g.drawString("High Score:", 15, 950);
@@ -325,5 +353,9 @@ public class HUD {
 	
 	public ArrayList<String> loadLeaderboard(){
 		return savedLeaderboard;
+	}
+
+	public void resetEnergyTimer() {
+		this.energyTimer = 10;
 	}
 }
