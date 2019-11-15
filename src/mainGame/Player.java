@@ -27,7 +27,6 @@ public class Player extends GameObject {
 	private Game game;
 	private double damage;
 	private int playerWidth, playerHeight;
-	private int tempInvincible = 0;
 	public static int playerSpeed = 10;
 	public static int diagonalPlayerSpeed = 8;
 	private SimpleMidi hitsoundMIDIPlayer;
@@ -134,6 +133,14 @@ public class Player extends GameObject {
 					wasHit = true;
 				}
 			}
+		}
+	}
+
+	public void deployBomb() {
+		if (hud.getEnergy() >= 10)
+		{
+			handler.addObject(new PlayerBomb(this.x, this.y, ID.PlayerBomb, handler, 300));
+			hud.setEnergy(hud.getEnergy() - 10);
 		}
 	}
 

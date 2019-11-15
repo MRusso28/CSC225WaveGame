@@ -271,6 +271,8 @@ public class HUD {
 		return health;
 	}
 
+	public double getEnergy() { return energy; }
+
 	public int getScore() {
 		return score;
 	}
@@ -285,6 +287,10 @@ public class HUD {
 
 	public void setHealth(double health) {
 		this.health = health;
+	}
+
+	public void setEnergy(double energy) {
+		this.energy = energy;
 	}
 
 	public void setRegen() {

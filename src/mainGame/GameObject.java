@@ -21,11 +21,14 @@ public abstract class GameObject {
 	protected double velX, velY;
 	protected boolean isMoving;
 	protected int health;
+	protected int tempInvincible;
 
 	public GameObject(double x, double y, ID id) {
 		this.x = x;
 		this.y = y;
 		this.id = id;
+		this.health = 1;
+		this.tempInvincible = 0;
 	}
 
 	// abstract classes are needed in subclasses (need to be explicitly implemented)
