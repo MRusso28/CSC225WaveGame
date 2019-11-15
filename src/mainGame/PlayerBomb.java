@@ -48,16 +48,18 @@ public class PlayerBomb extends GameObject {
     }
 
     public void explode() {
+        int a = 15;
+        int b = 30;
         if (isGrowing) {
-            sizeX += (int) (explosionSize / 25);
-            x -= (int) (explosionSize / 50);
-            sizeY += (int) (explosionSize / 25);
-            y -= (int) (explosionSize / 50);
+            sizeX += (int) (explosionSize / a);
+            x -= (int) (explosionSize / b);
+            sizeY += (int) (explosionSize / a);
+            y -= (int) (explosionSize / b);
         } else {
-            sizeX -= (int) (explosionSize / 25);
-            x += (int) (explosionSize / 50);
-            sizeY -= (int) (explosionSize / 25);
-            y += (int) (explosionSize / 50);
+            sizeX -= (int) (explosionSize / a);
+            x += (int) (explosionSize / b);
+            sizeY -= (int) (explosionSize / a);
+            y += (int) (explosionSize / b);
         }
 
         if (this.sizeX >= explosionSize) {
