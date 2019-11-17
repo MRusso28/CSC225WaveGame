@@ -61,6 +61,7 @@ public class Menu {
 		this.handler = handler;
 		this.hud = hud;
 		this.spawner = spawner;
+
 		timer = 10;
 		r = new Random();
 		addColors();

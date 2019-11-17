@@ -32,10 +32,6 @@ public class GameSave {
 		_handler = handler;
 	}
 	
-	public void tick(){
-		_handler.clearCoins();
-	}
-	
 	//GETTERS
 	public String getName(){
 		return name;
