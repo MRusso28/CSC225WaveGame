@@ -263,7 +263,7 @@ public class MouseListener extends MouseAdapter {
 					hud.setCost(hud.getCost()*hud.getCostMultipier());
 					hud.setRegen();
 					hud.setNumRegen();
-					hud.setregenValue();
+					hud.setRegenValue();
 				}
 
 			}

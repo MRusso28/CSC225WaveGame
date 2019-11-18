@@ -121,7 +121,7 @@ public class Player extends GameObject {
 					hud.updateScoreColor(Color.red);
 					wasHit = true;
 					tempInvincible = 15;
-					hud.resetEnergyTimer();
+					hud.setEnergyTimer(180);
 				}
 			}
 			if (tempObject.getId() == ID.EnemyBoss) {
