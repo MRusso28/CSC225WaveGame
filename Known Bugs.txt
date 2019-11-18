@@ -11,3 +11,5 @@ Other Improvements:
 - Have multiple saved games
 
 - add micro-transactions
+
+- comment the code, lol good luck
