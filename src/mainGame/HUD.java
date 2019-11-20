@@ -44,6 +44,7 @@ public class HUD {
     private int passiveMax = 3;
     private double regenValue = 0;
     private double energyRegenValue = 1;
+    private boolean bombAbility;
     private ArrayList<String> leaderboard;
     private ArrayList<String> savedLeaderboard;
 
@@ -318,6 +319,14 @@ public class HUD {
 
     public void setExtraLives(int lives) {
         this.extraLives = lives;
+    }
+
+    public boolean isBombAbility() {
+        return bombAbility;
+    }
+
+    public void setBombAbility(boolean bombAbility) {
+        this.bombAbility = bombAbility;
     }
 
     public void healthIncrease() {

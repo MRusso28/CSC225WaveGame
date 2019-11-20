@@ -170,7 +170,7 @@ public class Upgrades {
 			speedBoost();
 		}else if (theAbility.equals("Bomb")) {
 			ability = "Bomb";
-			player.setBombAbility(true);
+			hud.setBombAbility(true);
 		}
 	}
 

@@ -344,7 +344,7 @@ public class MouseListener extends MouseAdapter {
 
 			//Deploy Bomb
 			if (mouseOver(mx, my, 300, 650, 125, 125)) {
-				if (!player.isBombAbility() && hud.getScore() >= 5000) {
+				if (!hud.isBombAbility() && hud.getScore() >= 5000) {
 					hud.setScore(-5000);
 					upgrades.setAbility("Bomb");
 				}
