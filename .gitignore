@@ -164,3 +164,7 @@ fabric.properties
 .idea/**/markdown-navigator/
 
 # End of https://www.gitignore.io/api/intellij
+
+# Custom gitignore
+.idea/codeStyles
+gameSavesFile.txt
