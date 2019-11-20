@@ -319,7 +319,7 @@ public class Pause {
     //Bomb
 	g.drawImage(deployBombIcon, 300, 650, 125, 125, null);//Active
 	g.drawImage(coin,300,785,40,40,null);
-	g.drawString("X" + (int)hud.getActiveCost(),325,825);
+	g.drawString("X" + (int)5000,325,825);
 
     //Loadout
     g.drawImage(healthRegenIcon, 1050, 125, 125, 125, null);

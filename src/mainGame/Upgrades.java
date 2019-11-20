@@ -168,6 +168,9 @@ public class Upgrades {
 		} else if (theAbility.equals("SpeedBoost")) {
 			ability = "SpeedBoost";
 			speedBoost();
+		}else if (theAbility.equals("Bomb")) {
+			ability = "Bomb";
+			player.setBombAbility(true);
 		}
 	}
 

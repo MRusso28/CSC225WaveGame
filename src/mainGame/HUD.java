@@ -1,12 +1,7 @@
 package mainGame;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 /**
  * The main Heads Up Display of the game
@@ -46,10 +41,19 @@ public class HUD {
     private int numShrink = 0;
     private int numArmor = 0;
     private int numClear = 0;
+    private int passiveMax = 3;
     private double regenValue = 0;
     private double energyRegenValue = 1;
     private ArrayList<String> leaderboard;
     private ArrayList<String> savedLeaderboard;
+
+    public int getPassiveMax() {
+        return passiveMax;
+    }
+
+    public void setPassiveMax(int passiveMax) {
+        this.passiveMax = passiveMax;
+    }
 
     public int getNumClear() {
         return numClear;
@@ -147,13 +151,13 @@ public class HUD {
         this.activeCost = a;
     }
 
-	public int getEnergyTimer() {
-		return energyTimer;
-	}
+    public int getEnergyTimer() {
+        return energyTimer;
+    }
 
-	public void setEnergyTimer(int energyTimer) {
-		this.energyTimer = energyTimer;
-	}
+    public void setEnergyTimer(int energyTimer) {
+        this.energyTimer = energyTimer;
+    }
 
     public void tick() {
         //health = Game.clamp(health, 0, health);
@@ -199,7 +203,7 @@ public class HUD {
         g.setColor(Color.GRAY);
         g.fillRect(15, 15, healthBarWidth, 0);
         g.setColor(new Color(75, (int) greenValue, 0, 230));
-        g.fillRect((int) 15, (int) 15, (int) health * 4, 64);
+        g.fillRect(15, 15, (int) health * 4, 64);
         if (regen && health < healthMax)
             g.setColor(regenColor);
         else
@@ -218,7 +222,7 @@ public class HUD {
 
 
         g.setColor(new Color(255, 255, 255, 200));
-        g.fillRect((int) 15, (int) 80, (int) energy * 4, 16);
+        g.fillRect(15, 80, (int) energy * 4, 16);
 
         g.setFont(font);
         g.setColor(scoreColor);
@@ -244,12 +248,12 @@ public class HUD {
         }
     }
 
-    public void setAbility(String ability) {
-        this.ability = ability;
-    }
-
     public String getAbility() {
         return ability;
+    }
+
+    public void setAbility(String ability) {
+        this.ability = ability;
     }
 
     public int getAbilityUses() {
@@ -264,10 +268,6 @@ public class HUD {
         this.scoreColor = color;
     }
 
-    public void setScore(int score) {
-        this.score += score;
-    }
-
     public void resetScore() {
         this.score = 00000000000;
     }
@@ -276,12 +276,24 @@ public class HUD {
         return health;
     }
 
+    public void setHealth(double health) {
+        this.health = health;
+    }
+
     public double getEnergy() {
         return energy;
     }
 
+    public void setEnergy(double energy) {
+        this.energy = energy;
+    }
+
     public int getScore() {
         return score;
+    }
+
+    public void setScore(int score) {
+        this.score += score;
     }
 
     public int getLevel() {
@@ -292,14 +304,6 @@ public class HUD {
         this.level = level;
     }
 
-    public void setHealth(double health) {
-        this.health = health;
-    }
-
-    public void setEnergy(double energy) {
-        this.energy = energy;
-    }
-
     public void setRegen() {
         regen = true;
     }
@@ -308,12 +312,12 @@ public class HUD {
         regen = false;
     }
 
-    public void setExtraLives(int lives) {
-        this.extraLives = lives;
-    }
-
     public int getExtraLives() {
         return this.extraLives;
+    }
+
+    public void setExtraLives(int lives) {
+        this.extraLives = lives;
     }
 
     public void healthIncrease() {
@@ -336,16 +340,16 @@ public class HUD {
         this.health = healthMax;
     }
 
+    public String getHighScore() {
+        return highScoreString;
+    }
+
     public void setHighScore(String data) {
 
         String topLeaderboard = leaderboard.get(0);
 
         this.highScoreString = topLeaderboard;
 
-    }
-
-    public String getHighScore() {
-        return highScoreString;
     }
 
     public void setLeaderboard() {

@@ -33,6 +33,7 @@ public class Player extends GameObject {
 	private String hitsoundMIDIMusic = "HitsoundPart2.mid";
 	private String pickupcoinMIDIMusic = "pickupcoin.mid";
 	private boolean wasHit;
+	private boolean bombAbility;
 	
 
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game) {
@@ -137,11 +138,19 @@ public class Player extends GameObject {
 	}
 
 	public void deployBomb() {
-		if (hud.getEnergy() >= 10)
+		if (bombAbility & hud.getEnergy() >= 10)
 		{
 			handler.addObject(new PlayerBomb(this.x, this.y, ID.PlayerBomb, handler));
 			hud.setEnergy(hud.getEnergy() - 10);
 		}
+	}
+
+	public boolean isBombAbility() {
+		return bombAbility;
+	}
+
+	public void setBombAbility(boolean bombAbility) {
+		this.bombAbility = bombAbility;
 	}
 
 	@Override
