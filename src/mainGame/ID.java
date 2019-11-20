@@ -26,5 +26,6 @@ public enum ID {
 	PickupCoin(),
 	Levels1to10Text(),
 	EnemyBasic(),
-	PlayerBomb();
+	PlayerBomb(),
+	PlayerBombExplosion();
 }

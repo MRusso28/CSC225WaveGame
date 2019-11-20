@@ -139,7 +139,7 @@ public class Player extends GameObject {
 	public void deployBomb() {
 		if (hud.getEnergy() >= 10)
 		{
-			handler.addObject(new PlayerBomb(this.x, this.y, ID.PlayerBomb, handler, 300));
+			handler.addObject(new PlayerBomb(this.x, this.y, ID.PlayerBomb, handler));
 			hud.setEnergy(hud.getEnergy() - 10);
 		}
 	}

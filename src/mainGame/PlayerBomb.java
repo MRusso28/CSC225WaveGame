@@ -12,33 +12,24 @@ import java.util.Random;
 public class PlayerBomb extends GameObject {
 
     private Handler handler;
-    private int sizeX = 16;
-    private int sizeY = 16;
+    private int sizeX = 32;
+    private int sizeY = 32;
 
-    private int ticksToExplode;
-    private int explosionSize;
-
-    private boolean isGrowing = true;
-
-    public PlayerBomb (double x, double y, ID id, Handler handler, int _explosionSize) {
+    public PlayerBomb (double x, double y, ID id, Handler handler) {
         super(x, y, id);
         this.handler = handler;
-        explosionSize = _explosionSize;
     }
 
     public void tick() {
-        ticksToExplode--;
-        if (ticksToExplode <= 0) {
-            explode();
-        }
-
+        collision();
         if (this.y >= Game.HEIGHT)
             handler.removeObject(this);
-
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.orange);
+        g.setColor(new Color(11,100,237));
+        g.fillRect((int) x, (int) y, this.sizeX, this.sizeY);
+        g.setColor(Color.white);
         g.drawRect((int) x, (int) y, this.sizeX, this.sizeY);
     }
 
@@ -47,25 +38,21 @@ public class PlayerBomb extends GameObject {
         return new Rectangle((int) this.x, (int) this.y, this.sizeX, this.sizeY);
     }
 
-    public void explode() {
-        if (isGrowing) {
-            sizeX += (int) (explosionSize / 25);
-            x -= (int) (explosionSize / 50);
-            sizeY += (int) (explosionSize / 25);
-            y -= (int) (explosionSize / 50);
-        } else {
-            sizeX -= (int) (explosionSize / 25);
-            x += (int) (explosionSize / 50);
-            sizeY -= (int) (explosionSize / 25);
-            y += (int) (explosionSize / 50);
-        }
-
-        if (this.sizeX >= explosionSize) {
-            isGrowing = false;
-        }
-
-        if (this.sizeX <= 0) {
-            handler.removeObject(this);
+    public void collision() {
+        for (int i = 0; i < handler.object.size(); i++) {
+            GameObject tempObject = handler.object.get(i);
+            if (tempObject.getId() == ID.EnemyBasic || tempObject.getId() == ID.EnemyFast
+                    || tempObject.getId() == ID.EnemySmart || tempObject.getId() == ID.EnemyBossBullet
+                    || tempObject.getId() == ID.EnemySweep || tempObject.getId() == ID.EnemyShooterBullet
+                    || tempObject.getId() == ID.EnemyBurst || tempObject.getId() == ID.EnemyShooter
+                    || tempObject.getId() == ID.BossEye) {
+                // collision code
+                if (getBounds().intersects(tempObject.getBounds()) && tempInvincible == 0) {
+                    handler.removeObject(this);
+                    handler.addObject(new PlayerBombExplosion(this.x, this.y, ID.PlayerBombExplosion, handler, 300));
+                    tempInvincible = 15;
+                }
+            }
         }
     }
 

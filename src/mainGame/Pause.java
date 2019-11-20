@@ -47,6 +47,7 @@ public class Pause {
 	private Image clearScreenIcon;
 	private Image extraLifeIcon;
 	private Image damageResistanceIcon;
+	private Image deployBombIcon;
 	private Image coin;
 
 
@@ -80,7 +81,7 @@ public class Pause {
 		enemy3Img = getImage("/images/gameImgEnemy3.PNG");
 		enemy4Img = getImage("/images/gameImgEnemy4.PNG");
 		enemy5Img = getImage("/images/gameImgEnemy5.PNG");
-		speedBoostIcon = getImage("/images/SpeedBoostAbility.PNG");
+		speedBoostIcon = getImage("/images/Speed Boost Ability.png");
 		healthRegenIcon = getImage("/images/Health Regen Ability.png");
 		healthIncreaseIcon = getImage("/images/Health Increase Ability.png");
 		shrinkIcon = getImage("/images/Shrink Ability.png");
@@ -89,6 +90,7 @@ public class Pause {
 		extraLifeIcon = getImage("/images/Extra Life Ability.png");
 		clearScreenIcon = getImage("/images/Clear Screen Ability.png");
 		damageResistanceIcon = getImage("/images/Damage Resistance Ability.png");
+		deployBombIcon = getImage("/images/Bomb Ability.png");
 		coin = getImage("/images/PickupCoin.png");
 
 
@@ -313,6 +315,11 @@ public class Pause {
     g.drawImage(clearScreenIcon, 500, 650, 125, 125, null);//Active
     g.drawImage(coin,500,785,40,40,null);
     g.drawString("X" + (int)hud.getActiveCost(),525,825);
+
+    //Bomb
+	g.drawImage(deployBombIcon, 300, 650, 125, 125, null);//Active
+	g.drawImage(coin,300,785,40,40,null);
+	g.drawString("X" + (int)hud.getActiveCost(),325,825);
 
     //Loadout
     g.drawImage(healthRegenIcon, 1050, 125, 125, 125, null);

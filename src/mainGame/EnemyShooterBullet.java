@@ -50,7 +50,7 @@ public class EnemyShooterBullet extends GameObject {
 	public void collision() {
 		for (int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i);
-			if (tempObject.getId() == ID.PlayerBomb) {
+			if (tempObject.getId() == ID.PlayerBombExplosion) {
 				// collision code
 				if (getBounds().intersects(tempObject.getBounds()) && tempInvincible == 0) {//hit by player's weapon
 					health -= 1;
