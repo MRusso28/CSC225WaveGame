@@ -206,6 +206,7 @@ public class Game extends Canvas implements Runnable {
 	public Boolean getIsGameSaved(){	
 		return isGameSaved;
 	}
+	
 	public synchronized void start() {
 		thread = new Thread(this);
 		thread.start();

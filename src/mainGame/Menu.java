@@ -119,6 +119,18 @@ public class Menu {
 		}
 		return image;
 	}
+	
+	public String isGameSaved()
+	{
+		if (game.getIsGameSaved() == true)
+		{
+			return "Yes";
+		}
+		else
+		{
+			return "No";
+		}
+	}
 
 	public void render(Graphics g) {
 		if (game.gameState == STATE.Menu) {
@@ -126,6 +138,7 @@ public class Menu {
 			handler.render(g);
 			Font font = new Font("Amoebic", 1, 100);
 			Font font2 = new Font("Amoebic", 1, 60);
+			Font font3 = new Font("Amoebic", 1, 45);
 
 			g.setFont(font);
 			g.setColor(Color.white);
@@ -134,6 +147,14 @@ public class Menu {
 			g.setFont(font);
 			g.setColor(Color.white);
 			g.drawString("Wave Game: B4&Aftr.io", 75, 100);
+			
+			g.setFont(font3);
+			g.setColor(Color.white);
+			g.drawString("Game Saved: ", 1080, 590);
+			
+			g.setFont(font3);
+			g.setColor(Color.white);
+			g.drawString(isGameSaved(), 1200, 640);
 
 			g.setColor(Color.white);
 			g.drawRect(1050, 300, 350, 400);
