@@ -111,11 +111,7 @@ public class Player extends GameObject {
 		
 		for (int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i);
-			if (tempObject.getId() == ID.EnemyBasic || tempObject.getId() == ID.EnemyFast
-					|| tempObject.getId() == ID.EnemySmart || tempObject.getId() == ID.EnemyBossBullet
-					|| tempObject.getId() == ID.EnemySweep || tempObject.getId() == ID.EnemyShooterBullet
-					|| tempObject.getId() == ID.EnemyBurst || tempObject.getId() == ID.EnemyShooter
-					|| tempObject.getId() == ID.BossEye) {// tempObject is an enemy
+			if (tempObject.getId().getType().equals("enemy")) {// tempObject is an enemy
 				// collision code
 				if (getBounds().intersects(tempObject.getBounds()) && tempInvincible == 0) {// player hit an enemy
 					hud.health -= damage;

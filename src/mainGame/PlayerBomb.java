@@ -41,16 +41,10 @@ public class PlayerBomb extends GameObject {
     public void collision() {
         for (int i = 0; i < handler.object.size(); i++) {
             GameObject tempObject = handler.object.get(i);
-            if (tempObject.getId() == ID.EnemyBasic || tempObject.getId() == ID.EnemyFast
-                    || tempObject.getId() == ID.EnemySmart || tempObject.getId() == ID.EnemyBossBullet
-                    || tempObject.getId() == ID.EnemySweep || tempObject.getId() == ID.EnemyShooterBullet
-                    || tempObject.getId() == ID.EnemyBurst || tempObject.getId() == ID.EnemyShooter
-                    || tempObject.getId() == ID.BossEye) {
-                // collision code
+            if (tempObject.getId().getType().equals("enemy")) {
                 if (getBounds().intersects(tempObject.getBounds()) && tempInvincible == 0) {
                     handler.removeObject(this);
                     handler.addObject(new PlayerBombExplosion(this.x, this.y, ID.PlayerBombExplosion, handler, 300));
-                    tempInvincible = 15;
                 }
             }
         }
