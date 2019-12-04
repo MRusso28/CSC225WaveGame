@@ -26,7 +26,7 @@ import mainGame.Game.STATE;
 
 /**
  * The main menu
- * 
+ *
  * @author Brandon Loehle 5/30/16
  *
  */
@@ -36,53 +36,45 @@ public class Menu {
 	private Game game;
 	private Handler handler;
 	private HUD hud;
-	private BufferedImage img;
+	private Image img;
 	private int timer;
 	private Random r;
 	private ArrayList<Color> colorPick = new ArrayList<Color>();
 	private int colorIndex;
 	private Spawn1to10 spawner;
-	
+
 	//images
 	private Image enemy1Img;
 	private Image enemy2Img;
 	private Image enemy3Img;
 	private Image enemy4Img;
 	private Image enemy5Img;
-	
+
 	private Image boss1Img;
 	private Image boss2Img;
 
-	/**
-	 * Constructor for Menu.
-	 */
 	public Menu(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
 		this.game = game;
 		this.handler = handler;
 		this.hud = hud;
 		this.spawner = spawner;
-
 		timer = 10;
 		r = new Random();
 		addColors();
 
-		img = null;
-		try {
-			img = ImageIO.read(new File("images/4.gif"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		img = getImage("images/4.gif");
 
 		handler.addObject(new MenuFireworks((r.nextInt(Game.WIDTH) - 25), 500, 50, 50, 0, -2,
 				colorPick.get(r.nextInt(6)), ID.Firework, this.handler));
-		
+
+
 		//images
 		enemy1Img = getImage("images/gameImgEnemy1.PNG");
 		enemy2Img = getImage("images/gameImgEnemy2.PNG");
 		enemy3Img = getImage("images/gameImgEnemy3.PNG");
 		enemy4Img = getImage("images/gameImgEnemy4.PNG");
 		enemy5Img = getImage("images/gameImgEnemy5.PNG");
-		
+
 		boss1Img = getImage("images/EnemyBoss.png");
 		boss2Img = getImage("images/bosseye.png");
 	}
@@ -95,6 +87,7 @@ public class Menu {
 		colorPick.add(Color.cyan);
 		colorPick.add(Color.magenta);
 		colorPick.add(Color.yellow);
+		colorPick.add(new Color(50, 135, 168));
 	}
 
 	public void tick() throws JSONException {
@@ -108,7 +101,7 @@ public class Menu {
 		}
 		handler.tick();
 	}
-	
+
 	public Image getImage(String path) {
 		Image image = null;
 		try {
@@ -119,18 +112,6 @@ public class Menu {
 		}
 		return image;
 	}
-	
-	public String isGameSaved()
-	{
-		if (game.getIsGameSaved() == true)
-		{
-			return "Yes";
-		}
-		else
-		{
-			return "No";
-		}
-	}
 
 	public void render(Graphics g) {
 		if (game.gameState == STATE.Menu) {
@@ -138,79 +119,60 @@ public class Menu {
 			handler.render(g);
 			Font font = new Font("Amoebic", 1, 100);
 			Font font2 = new Font("Amoebic", 1, 60);
-			Font font3 = new Font("Amoebic", 1, 45);
 
 			g.setFont(font);
-			g.setColor(Color.white);
+			g.setColor(Color.green);
 			g.drawString("Game Modes", 1140, 200);
 
 			g.setFont(font);
-			g.setColor(Color.white);
+			g.setColor(Color.green);
 			g.drawString("Wave Game: B4&Aftr.io", 75, 100);
-			
-			g.setFont(font3);
-			g.setColor(Color.white);
-			g.drawString("Game Saved: ", 1080, 590);
-			
-			g.setFont(font3);
-			g.setColor(Color.white);
-			g.drawString(isGameSaved(), 1200, 640);
 
 			g.setColor(Color.white);
 			g.drawRect(1050, 300, 350, 400);
 			g.setFont(font2);
-			g.setColor(Color.white);
+			g.setColor(new Color(50, 135, 168));
 			g.drawString("Waves",1130, 510);
-			
+
 			g.setColor(Color.white);
 			g.drawRect(1450, 300, 350, 400);
 			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Easy Mode",1470, 510);
-			
+			g.setColor(new Color(50, 135, 168));
+			g.drawString("Tutorial",1500, 510);
+
 			g.setColor(Color.white);
 			g.drawRect(1050, 735, 750, 250);
 			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Leaderboard",1250, 900);
-			
+			g.setColor(new Color(50, 135, 168));
+			g.drawString("Leaderboard",1250, 880);
 
-			/*g.setColor(Color.white);
-			g.drawRect(1440, 135, 400, 400);
+
+			//Trying to add new button for CC.
+			//TO DO: Resize all the buttons on the many menu
+
+			g.setColor(Color.white);
+			g.drawRect(80, 435, 850, 250);
 			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Bosses", 1550, 215);*/
-
-			/*g.setColor(Color.white);
-			g.drawRect(990, 585, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Attack", 1095, 665);*/
-
-			/*g.setColor(Color.white);
-			g.drawRect(1440, 585, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Hunger", 1550, 665);*/
-
+			g.setColor(new Color(50, 135, 168));
+			g.drawString("Character Customization",140, 600);
 
 			g.setColor(Color.white);
 			g.drawRect(80, 135, 850, 250);
 			g.setFont(font);
-			g.setColor(Color.white);
+			g.setColor(new Color(50, 135, 168));
 			g.drawString("Help", 400, 280);
 
 			g.setColor(Color.white);
-			g.drawRect(80, 435, 850, 250);
-			g.setFont(font);
-			g.setColor(Color.white);
-			g.drawString("Credits", 340, 600);
+			g.drawRect(80, 725, 400, 250);
+			g.setFont(font2);
+			g.setColor(new Color(50, 135, 168));
+			g.drawString("Credits", 170, 860);
 
 			g.setColor(Color.white);
-			g.drawRect(80, 735, 850, 250);
-			g.setFont(font);
-			g.setColor(Color.white);
-			g.drawString("Quit", 400, 900);
+			g.drawRect(525, 725, 400, 250); // (Xtopleft, Ytopleft, width, height)
+			g.setFont(font2);
+			g.setColor(new Color(50, 135, 168));
+			g.drawString("Quit", 650, 860);
 		} else if (game.gameState == STATE.Help) { // if the user clicks on "help"
 			Font font = new Font("Amoebic", 1, 50);
 			Font font2 = new Font("Amoebic", 1, 30);
@@ -218,107 +180,107 @@ public class Menu {
 			g.setFont(font);
 			g.setColor(Color.white);
 			g.drawString("How To Play", 900, 70);
-			
+
 
 			g.setFont(font2);
 			g.drawString("In order to avoid enemies use the arrow keys or WASD keys to move around.", 40, 200);
 			g.drawString("You must collect coins while facing the enemies to increase your score.", 40, 240);
 			g.drawString("Use the coins you have collected to buy items from the Shop.", 40, 280);
-			
+
 			g.drawString("In order to access the Shop press P which will bring you to the pause menu.", 40, 320);
 			g.drawString("In order to exit the pause menu press P again.", 40, 370);
 			g.drawString("Press Enter to use abilities when they have been equipped", 40, 440);
-			
+
 			g.drawString("Click Next to see Enemy and Boss Summeries", 40, 800);
 
 			g.setFont(font2);
 			g.setColor(Color.white);
-			
+
 			g.drawRect(1600, 870, 200, 65);
 			g.drawString("Next", 1650, 910);
-			
+
 			g.drawRect(850, 870, 200, 64);
 			g.drawString("Main", 920, 910);
 		} else if (game.gameState == STATE.Help2){ //second help page
-			
+
 			Font font = new Font("Amoebic", 1, 50);
 			Font font2 = new Font("Amoebic", 1, 30);
-			
+
 			g.setFont(font);
 			g.setColor(Color.white);
 			g.drawString("Type of Enemies", 800, 70);
-			
-			
+
+
 			g.setFont(font2);
 			g.drawString("The Follower. They will", 40, 200);
 			g.drawString("follow you were ever", 40, 240);
 			g.drawString("you are on screen.", 40, 280);
-			
+
 			g.drawString("Red Enemy.They ", 400, 200);
 			g.drawString("bounce off the walls at", 400, 240);
 			g.drawString("a 45 degree angle.", 400, 280);
-			
+
 			g.drawString("Cyan. They bounce", 750, 200);
 			g.drawString("off the walls at", 750, 240);
 			g.drawString("a shallow angle", 750, 280);
-			
+
 			g.drawString("Square Shooter. They ", 1100, 200);
 			g.drawString("shoot little bullets at", 1100, 240);
 			g.drawString("you to dodge", 1100, 280);
-			
-			
+
+
 			g.drawString("Burst. Warning flashes", 1500, 200);
 			g.drawString("will appear from the side", 1500, 240);
 			g.drawString("that they will appear from.", 1500, 280);
-			
+
 			g.setFont(font2);
 			g.setColor(Color.white);
 			g.drawRect(100, 870, 200, 64);
 			g.drawString("Back", 150, 910);
-			
+
 			g.drawRect(850, 870, 200, 64);
 			g.drawString("Main", 920, 910);
-			
+
 			g.drawRect(1600, 870, 200, 65);
 			g.drawString("Next", 1650, 910);
-			
+
 			//images
 			g.drawImage(enemy1Img, 100, 340, 250, 250, null);
 			g.drawImage(enemy2Img, 400, 340, 250, 250, null);
 			g.drawImage(enemy3Img, 750, 340, 250, 250, null);
 			g.drawImage(enemy4Img, 1100, 340, 250, 250, null);
 			g.drawImage(enemy5Img, 1500, 340, 300, 250, null);
-			
-			
-			
+
+
+
 		} else if (game.gameState == STATE.Help3){
-			
+
 			Font font = new Font("Amoebic", 1, 50);
 			Font font2 = new Font("Amoebic", 1, 30);
-			
+
 			g.setFont(font);
 			g.setColor(Color.white);
 			g.drawString("The Bosses", 830, 70);
-			
-			
+
+
 			g.setFont(font2);
 			g.drawString("The Red Boss. Dodge the", 40, 200);
 			g.drawString("explosive bullets that gets", 40, 240);
 			g.drawString("thrown and stay below the line.", 40, 280);
-			
+
 			g.drawImage(boss1Img, 100, 340, 250, 250, null);
-			
+
 			g.drawString("The Green Eye Boss. Each", 600, 200);
 			g.drawString("moves differently so keep", 600, 240);
 			g.drawString("moving and stay alert!", 600, 280);
-			
+
 			g.drawImage(boss2Img, 600, 340, 250, 250, null);
-			
+
 			g.setFont(font2);
 			g.setColor(Color.white);
 			g.drawRect(100, 870, 200, 64);
 			g.drawString("Back", 150, 910);
-			
+
 			g.drawRect(850, 870, 200, 64);
 			g.drawString("Main", 920, 910);
 
