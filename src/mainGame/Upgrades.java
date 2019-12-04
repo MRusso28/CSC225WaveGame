@@ -87,7 +87,7 @@ public class Upgrades {
 	}
 
 	public void speedBoost() {
-		Player.playerSpeed *= 2;
+		Player.playerSpeed += 1;
 	}
 
 	public String getAbility() {
@@ -168,6 +168,9 @@ public class Upgrades {
 		} else if (theAbility.equals("SpeedBoost")) {
 			ability = "SpeedBoost";
 			speedBoost();
+		}else if (theAbility.equals("Bomb")) {
+			ability = "Bomb";
+			hud.setBombAbility(true);
 		}
 	}
 

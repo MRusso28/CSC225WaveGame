@@ -27,13 +27,13 @@ public class Player extends GameObject {
 	private Game game;
 	private double damage;
 	private int playerWidth, playerHeight;
-	private int tempInvincible = 0;
 	public static int playerSpeed = 10;
 	public static int diagonalPlayerSpeed = 8;
 	private SimpleMidi hitsoundMIDIPlayer;
 	private String hitsoundMIDIMusic = "HitsoundPart2.mid";
 	private String pickupcoinMIDIMusic = "pickupcoin.mid";
 	private boolean wasHit;
+
 	
 
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game) {
@@ -111,17 +111,14 @@ public class Player extends GameObject {
 		
 		for (int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i);
-			if (tempObject.getId() == ID.EnemyBasic || tempObject.getId() == ID.EnemyFast
-					|| tempObject.getId() == ID.EnemySmart || tempObject.getId() == ID.EnemyBossBullet
-					|| tempObject.getId() == ID.EnemySweep || tempObject.getId() == ID.EnemyShooterBullet
-					|| tempObject.getId() == ID.EnemyBurst || tempObject.getId() == ID.EnemyShooter
-					|| tempObject.getId() == ID.BossEye) {// tempObject is an enemy
+			if (tempObject.getId().getType().equals("enemy")) {// tempObject is an enemy
 				// collision code
 				if (getBounds().intersects(tempObject.getBounds()) && tempInvincible == 0) {// player hit an enemy
 					hud.health -= damage;
 					hud.updateScoreColor(Color.red);
 					wasHit = true;
 					tempInvincible = 15;
+					hud.setEnergyTimer(180);
 				}
 			}
 			if (tempObject.getId() == ID.EnemyBoss) {
@@ -135,6 +132,15 @@ public class Player extends GameObject {
 			}
 		}
 	}
+
+	public void deployBomb() {
+		if (hud.isBombAbility() & hud.getEnergy() >= 10)
+		{
+			handler.addObject(new PlayerBomb(this.x, this.y, ID.PlayerBomb, handler));
+			hud.setEnergy(hud.getEnergy() - 10);
+		}
+	}
+
 
 	@Override
 	public void render(Graphics g) {

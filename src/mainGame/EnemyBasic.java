@@ -1,8 +1,11 @@
 package mainGame;
 
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MidiUnavailableException;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.io.IOException;
 
 /**
  * A type of enemy in the game
@@ -30,9 +33,25 @@ public class EnemyBasic extends GameObject {
 			velY *= -1;
 		if (this.x <= 0 || this.x >= Game.WIDTH - 16)
 			velX *= -1;
-
 		handler.addObject(new Trail(x, y, ID.Trail, Color.red, 16, 16, 0.150, this.handler));
 
+		collision();
+		if (health <= 0) {
+			handler.removeObject(this);
+		}
+	}
+
+	public void collision() {
+		for (int i = 0; i < handler.object.size(); i++) {
+			GameObject tempObject = handler.object.get(i);
+			//hit by player's weapon
+			if (tempObject.getId().getType().equals("weapon")) {
+				if (getBounds().intersects(tempObject.getBounds()) && tempInvincible == 0) {
+					health -= 1;
+					tempInvincible = 15;
+				}
+			}
+		}
 	}
 
 	public void render(Graphics g) {

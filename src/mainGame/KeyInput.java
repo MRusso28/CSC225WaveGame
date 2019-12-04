@@ -139,7 +139,7 @@ public class KeyInput extends KeyAdapter {
 				}
 				*/
 				if (key == KeyEvent.VK_SPACE) {
-					//upgrades.levelSkipAbility();
+					player.deployBomb();
 				}
 				if (key == KeyEvent.VK_ENTER) {
 					ability = upgrades.getAbility();

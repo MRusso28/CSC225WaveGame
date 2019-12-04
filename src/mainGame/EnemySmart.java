@@ -48,6 +48,23 @@ public class EnemySmart extends GameObject {
 
 		handler.addObject(new Trail(x, y, ID.Trail, Color.green, 16, 16, 0.175, this.handler));
 
+		collision();
+		if (health <= 0) {
+			handler.removeObject(this);
+		}
+	}
+
+	public void collision() {
+		for (int i = 0; i < handler.object.size(); i++) {
+			GameObject tempObject = handler.object.get(i);
+			if (tempObject.getId().getType().equals("weapon")) {
+				// collision code
+				if (getBounds().intersects(tempObject.getBounds()) && tempInvincible == 0) {//hit by player's weapon
+					health -= 1;
+					tempInvincible = 15;
+				}
+			}
+		}
 	}
 
 	public void render(Graphics g) {

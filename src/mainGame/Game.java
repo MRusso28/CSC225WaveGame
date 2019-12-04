@@ -172,7 +172,8 @@ public class Game extends Canvas implements Runnable {
 	 */
 	//set game stats for new game
 	public void setGameStats(){
-		hud.resetScore();
+		//hud.resetScore();
+		hud.setScore(30000);
 	}
 
 	//This sets the game stats when the user goes into the wave game mode, takes stuff from the saved game

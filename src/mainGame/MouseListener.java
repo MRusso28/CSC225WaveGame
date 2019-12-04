@@ -259,68 +259,78 @@ public class MouseListener extends MouseAdapter {
 		else if(game.gameState == STATE.PauseShop){
 			//Health Regen
 			if (mouseOver(mx, my, 100, 125, 125, 125)) {
-				if(hud.getScore()>=hud.getCost()) {
-					hud.setScore(-(int)hud.getCost());
-					hud.setCost(hud.getCost()*hud.getCostMultipier());
-					hud.setRegen();
-					hud.setNumRegen();
-					hud.setregenValue();
+				if (hud.getNumRegen() < hud.getPassiveMax()) {
+					if (hud.getScore() >= hud.getCost()) {
+						hud.setScore(-(int) hud.getCost());
+						hud.setCost(hud.getCost() * hud.getCostMultipier());
+						hud.setRegen();
+						hud.setNumRegen();
+						hud.setRegenValue();
+					}
 				}
-
 			}
 			//Health Increase
 			if (mouseOver(mx, my, 300, 125, 125, 125)) {
-				if(hud.getScore()>=hud.getCost()) {
-					hud.setScore(-(int)hud.getCost());
-					hud.setCost(hud.getCost()*hud.getCostMultipier());
-					hud.healthIncrease();
-					hud.setNumHealth();
-			}
+				if (hud.getNumHealth() < hud.getPassiveMax()) {
+					if (hud.getScore() >= hud.getCost()) {
+						hud.setScore(-(int) hud.getCost());
+						hud.setCost(hud.getCost() * hud.getCostMultipier());
+						hud.healthIncrease();
+						hud.setNumHealth();
+					}
+				}
 			}
 			//Shrink
 			if (mouseOver(mx, my, 500, 125, 125, 125)) {
-				if(hud.getScore()>=hud.getCost()) {
-					hud.setScore(-(int)hud.getCost());
-					hud.setCost(hud.getCost()*hud.getCostMultipier());
+				if (hud.getNumShrink() < hud.getPassiveMax()) {
+					if(hud.getScore()>=hud.getCost()) {
+					hud.setScore(-(int) hud.getCost());
+					hud.setCost(hud.getCost() * hud.getCostMultipier());
 					upgrades.decreasePlayerSize();
 					hud.setNumShrink();
-			}
+					}
+				}
 			}
 			//Damage Resistance
 			if (mouseOver(mx, my, 700, 125, 125, 125)) {
-				if(hud.getScore()>=hud.getCost()) {
-					hud.setScore(-(int)hud.getCost());
-					hud.setCost(hud.getCost()*hud.getCostMultipier());
-					upgrades.improvedDamageResistance();
-					hud.setNumArmor();
+				if (hud.getNumArmor() < hud.getPassiveMax()) {
+					if (hud.getScore() >= hud.getCost()) {
+						hud.setScore(-(int) hud.getCost());
+						hud.setCost(hud.getCost() * hud.getCostMultipier());
+						upgrades.improvedDamageResistance();
+						hud.setNumArmor();
+					}
 				}
-
 			}
 			//Speed Boost
 			if (mouseOver(mx, my, 100, 325, 125, 125)) {
-				if(hud.getScore()>=hud.getCost()) {
-					hud.setScore(-(int)hud.getCost());
-					hud.setCost(hud.getCost()*hud.getCostMultipier());
+				if (hud.getNumSpeed() < hud.getPassiveMax()) {
+					if(hud.getScore()>=hud.getCost()) {
+					hud.setScore(-(int) hud.getCost());
+					hud.setCost(hud.getCost() * hud.getCostMultipier());
 					upgrades.speedBoost();
 					hud.setNumSpeed();
-			}
+					}
+				}
 			}
 			//Extra Life
 			if (mouseOver(mx, my, 300, 325, 125, 125)) {
-			if(hud.getScore()>=hud.getCost()){
-				hud.setScore(-(int)hud.getCost());
-				hud.setCost(hud.getCost()*hud.getCostMultipier());
-				hud.setExtraLives(hud.getExtraLives() + 1);
+				if (hud.getScore() >= hud.getCost()) {
+					hud.setScore(-(int) hud.getCost());
+					hud.setCost(hud.getCost() * hud.getCostMultipier());
+					hud.setExtraLives(hud.getExtraLives() + 1);
 				}
 			}
+
+
 			//Freeze Time
 			if (mouseOver(mx, my, 100, 650, 125, 125)) {
 				if(upgrades.getAbility().equals("")){
-				if (hud.getScore() >= hud.getActiveCost()) {
-					hud.setScore(-(int) hud.getActiveCost());
-					hud.setActiveCost(hud.getActiveCost() * 2);
-					upgrades.setAbility("freezeTime");
-					hud.setNumFreeze();
+					if (hud.getScore() >= hud.getActiveCost()) {
+						hud.setScore(-(int) hud.getActiveCost());
+						hud.setActiveCost(hud.getActiveCost() * 2);
+						upgrades.setAbility("freezeTime");
+						hud.setNumFreeze();
 					}
 				}
 				else if(upgrades.getAbility().equals("freezeTime")){
@@ -332,6 +342,15 @@ public class MouseListener extends MouseAdapter {
 					}
 				}
 			}
+
+			//Deploy Bomb
+			if (mouseOver(mx, my, 300, 650, 125, 125)) {
+				if (!hud.isBombAbility() && hud.getScore() >= 5000) {
+					hud.setScore(-5000);
+					upgrades.setAbility("Bomb");
+				}
+			}
+
 			//Clear Screen
 			if (mouseOver(mx, my, 500, 650, 125, 125)) {
 				if(upgrades.getAbility().equals("")) {

@@ -29,6 +29,11 @@ public class EnemyShooterBullet extends GameObject {
 		// if (this.x <= 0 || this.x >= Game.WIDTH - 16) velX *= -1;
 		handler.addObject(new Trail(x, y, ID.Trail, Color.yellow, 4, 4, 0.200, this.handler));
 		removeBullets();
+
+		collision();
+		if (health <= 0) {
+			handler.removeObject(this);
+		}
 	}
 
 	public void removeBullets() {
@@ -37,6 +42,19 @@ public class EnemyShooterBullet extends GameObject {
 			if (tempObject.getId() == ID.EnemyShooterBullet) {
 				if (tempObject.getX() >= Game.WIDTH || tempObject.getY() >= Game.HEIGHT) {
 					handler.removeObject(tempObject);
+				}
+			}
+		}
+	}
+
+	public void collision() {
+		for (int i = 0; i < handler.object.size(); i++) {
+			GameObject tempObject = handler.object.get(i);
+			if (tempObject.getId().getType().equals("weapon")) {
+				// collision code
+				if (getBounds().intersects(tempObject.getBounds()) && tempInvincible == 0) {//hit by player's weapon
+					health -= 1;
+					tempInvincible = 15;
 				}
 			}
 		}

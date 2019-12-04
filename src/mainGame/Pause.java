@@ -33,7 +33,7 @@ public class Pause {
 	private Handler handler;
 	private Image buttonImg;
 	private HUD hud;
-	
+
 	private Image enemy1Img;
 	private Image enemy2Img;
 	private Image enemy3Img;
@@ -47,6 +47,7 @@ public class Pause {
 	private Image clearScreenIcon;
 	private Image extraLifeIcon;
 	private Image damageResistanceIcon;
+	private Image deployBombIcon;
 	private Image coin;
 
 
@@ -80,7 +81,7 @@ public class Pause {
 		enemy3Img = getImage("/images/gameImgEnemy3.PNG");
 		enemy4Img = getImage("/images/gameImgEnemy4.PNG");
 		enemy5Img = getImage("/images/gameImgEnemy5.PNG");
-		speedBoostIcon = getImage("/images/SpeedBoostAbility.png");
+		speedBoostIcon = getImage("/images/Speed Boost Ability.png");
 		healthRegenIcon = getImage("/images/Health Regen Ability.png");
 		healthIncreaseIcon = getImage("/images/Health Increase Ability.png");
 		shrinkIcon = getImage("/images/Shrink Ability.png");
@@ -89,6 +90,7 @@ public class Pause {
 		extraLifeIcon = getImage("/images/Extra Life Ability.png");
 		clearScreenIcon = getImage("/images/Clear Screen Ability.png");
 		damageResistanceIcon = getImage("/images/Damage Resistance Ability.png");
+		deployBombIcon = getImage("/images/Bomb Ability.png");
 		coin = getImage("/images/PickupCoin.png");
 
 
@@ -314,21 +316,34 @@ public class Pause {
     g.drawImage(coin,500,785,40,40,null);
     g.drawString("X" + (int)hud.getActiveCost(),525,825);
 
+    //Bomb
+	if (!hud.isBombAbility()){
+		g.drawImage(deployBombIcon, 300, 650, 125, 125, null);//Active
+		g.drawImage(coin,300,785,40,40,null);
+		g.drawString("X" + (int)5000,325,825);
+	}
+
+
     //Loadout
     g.drawImage(healthRegenIcon, 1050, 125, 125, 125, null);
-    g.drawString("X"+hud.getNumRegen(),1050,300);
+    if (hud.getNumRegen() < hud.getPassiveMax()) g.drawString("X" + hud.getNumRegen(), 1050, 300);
+    else g.drawString("MAX", 1050, 300);
     g.drawImage(damageResistanceIcon, 1650, 125, 125, 125, null);
-    g.drawString("X"+hud.getNumArmor(),1650,300);
+	if (hud.getNumArmor() < hud.getPassiveMax()) g.drawString("X"+hud.getNumArmor(),1650,300);
+	else g.drawString("MAX", 1650,300);
     g.drawImage(freezeTimeIcon, 1450, 325, 125, 125, null);
     g.drawString("X"+hud.getNumFreeze(),1450,500);
     g.drawImage(clearScreenIcon, 1650, 325, 125, 125, null);
     g.drawString("X"+hud.getNumClear(),1650,500);
     g.drawImage(speedBoostIcon, 1050, 325, 125, 125, null);
-    g.drawString("X"+hud.getNumSpeed(),1050,500);
+	if (hud.getNumSpeed() < hud.getPassiveMax()) g.drawString("X"+hud.getNumSpeed(),1050,500);
+	else g.drawString("MAX", 1050,500);
     g.drawImage(healthIncreaseIcon, 1250, 125, 125, 125, null);
-    g.drawString("X"+hud.getNumHealth(),1250,300);
+	if (hud.getNumHealth() < hud.getPassiveMax()) g.drawString("X"+hud.getNumHealth(),1250,300);
+	else g.drawString("MAX", 1250,300);
     g.drawImage(shrinkIcon, 1450, 125, 125, 125, null);
-    g.drawString("X"+hud.getNumShrink(),1450,300);
+	if (hud.getNumShrink() < hud.getPassiveMax()) g.drawString("X"+hud.getNumShrink(),1450,300);
+	else g.drawString("MAX", 1450,300);
     g.drawImage(extraLifeIcon, 1250, 325, 125, 125, null);
     g.drawString("X"+hud.getExtraLives(),1250,500);
 
