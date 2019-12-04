@@ -215,6 +215,7 @@ public class MouseListener extends MouseAdapter {
 				if(mouseOver(mx, my, 550, 100, 900, 200)){
 					handler.clearEnemies();
 					handler.clearPlayer();
+					handler.clearCoins();
 					spawner.resetTempCounter();
 					spawner2.resetTempCounter();
 

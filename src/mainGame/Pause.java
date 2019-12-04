@@ -80,7 +80,7 @@ public class Pause {
 		enemy3Img = getImage("/images/gameImgEnemy3.PNG");
 		enemy4Img = getImage("/images/gameImgEnemy4.PNG");
 		enemy5Img = getImage("/images/gameImgEnemy5.PNG");
-		speedBoostIcon = getImage("/images/SpeedBoostAbility.PNG");
+		speedBoostIcon = getImage("/images/SpeedBoostAbility.png");
 		healthRegenIcon = getImage("/images/Health Regen Ability.png");
 		healthIncreaseIcon = getImage("/images/Health Increase Ability.png");
 		shrinkIcon = getImage("/images/Shrink Ability.png");

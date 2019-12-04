@@ -4,6 +4,8 @@
  */
 package mainGame;
 
+import java.awt.Color;
+
 public class GameSave {
 	//VARIABLES
 	private String name;
@@ -14,10 +16,11 @@ public class GameSave {
 	private int levelsRemaining;
 	private String ability;
 	private int abilityUses;
+	private Handler _handler;
 	
 	
 	//CONSTRUCTOR
-	public GameSave(String n, int sc, double hp, int lvl, int en, int lvlRem, String ab, int abilUses){
+	public GameSave(String n, int sc, double hp, int lvl, int en, int lvlRem, String ab, int abilUses, Handler handler){
 		name = n;
 		score = sc;
 		health = hp;
@@ -25,11 +28,10 @@ public class GameSave {
 		enemy = en;
 		levelsRemaining = lvlRem;
 		ability = ab;
-		abilityUses = abilUses;
-		
-		
-		
+		abilityUses = abilUses;	
+		_handler = handler;
 	}
+	
 	//GETTERS
 	public String getName(){
 		return name;

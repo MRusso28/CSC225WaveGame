@@ -82,7 +82,7 @@ public class Game extends Canvas implements Runnable {
 	 * Used to switch between each of the screens shown to the user
 	 */
 	public enum STATE {
-		Menu, Help, Help2, Help3, Game, GameOver, GameWon, Upgrade, Boss, Pause, PauseH1, PauseH2, PauseH3, PauseShop, Leaderboard, GameWonEasy, GameEasy
+		Menu, Help, Help2, Help3, Game, GameOver, GameWon, Upgrade, Boss, Pause, PauseH1, PauseH2, PauseH3, PauseShop, Leaderboard, GameWonEasy, GameEasy,
 	};
 
 	/**
@@ -206,6 +206,7 @@ public class Game extends Canvas implements Runnable {
 	public Boolean getIsGameSaved(){	
 		return isGameSaved;
 	}
+	
 	public synchronized void start() {
 		thread = new Thread(this);
 		thread.start();
@@ -235,9 +236,7 @@ public class Game extends Canvas implements Runnable {
 					String ability = _fileInput.next();
 					int abilityUses = _fileInput.nextInt();
 					
-					savedGame = new GameSave(name, score, health, level, enemy, lvlRem, ability, abilityUses);
-					
-					
+					savedGame = new GameSave(name, score, health, level, enemy, lvlRem, ability, abilityUses, handler);
 				
 				} while( _fileInput.hasNextLine());
 				
