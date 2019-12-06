@@ -53,7 +53,7 @@ public class Spawn1to10 {
 		hud.setLevel(1);
 		tempCounter = 0;
 		addLevels();
-		index = r.nextInt(levelsRemaining);
+		index = levelsRemaining; 
 		levelNumber = 0;
 		levelCounter = 1;
 		
@@ -63,8 +63,13 @@ public class Spawn1to10 {
 	 * Pre-load every level
 	 */
 	public void addLevels() {
+		levels.add(1);
+		levels.add(1);
+		
 		for (int i = 1; i <= 10; i++) {
 			levels.add(i);
+			levels.add(i);
+		// Please don't get rid of these double lines of code. This help the game play the code in the correct order.
 		}
 	}
 
@@ -115,7 +120,7 @@ public class Spawn1to10 {
 				handler.clearCoins();
 				tempCounter = 0;
 				levelCounter = 1;
-				index = r.nextInt(levelsRemaining - 5);
+				index = levelCounter + 1;//r.nextInt(levelsRemaining - 5);
 				levelNumber = levels.get(index);
 			}
 
@@ -169,13 +174,13 @@ public class Spawn1to10 {
 					levelsRemaining--;
 					if (levelsRemaining > 5) { //If there's still more than 5 levels remaining
 						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
-						index = r.nextInt(levelsRemaining - 5);// pick another level at random from the first half
+						index = levelCounter + 1;// pick another level at random from the first half
 						levelNumber = levels.get(index);// set levelNumber to whatever index was randomly selected
 						System.out.println("And is changing to: " + levelNumber + "   " + index);
 					}
 					else { //If there's just 5 levels remaining
 						System.out.println("Level Number was: " + levelNumber + " And is going up!");
-						index = r.nextInt(levelsRemaining);// pick another level at random from the second half
+						index = levelCounter + 1;// pick another level at random from the second half   r.nextInt(levelsRemaining
 						levelNumber = levels.get(index);// set levelNumber to whatever index was randomly selected
 						System.out.println("And is changing to: " + levelNumber);
 					}
@@ -225,13 +230,13 @@ public class Spawn1to10 {
 					levelsRemaining--;
 					if (levelsRemaining > 5) {
 						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
-						index = r.nextInt(levelsRemaining - 5);
+						index = levelCounter + 1;
 						levelNumber = levels.get(index);
 						System.out.println("And is changing to: " + levelNumber + "   " + index);
 					}
 					else {
 						System.out.println("Level Number was: " + levelNumber + " And is going up!");
-						index = r.nextInt(levelsRemaining);
+						index = levelCounter + 1;
 						levelNumber = levels.get(index);
 						System.out.println("And is changing to: " + levelNumber);
 					}
@@ -271,13 +276,13 @@ public class Spawn1to10 {
 					levelsRemaining--;
 					if (levelsRemaining > 5) {
 						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
-						index = r.nextInt(levelsRemaining - 5);
+						index = levelCounter + 1;
 						levelNumber = levels.get(index);
 						System.out.println("And is changing to: " + levelNumber + "   " + index);
 					}
 					else {
 						System.out.println("Level Number was: " + levelNumber + " And is going up!");
-						index = r.nextInt(levelsRemaining);
+						index = levelCounter + 1;
 						levelNumber = levels.get(index);
 						System.out.println("And is changing to: " + levelNumber);
 					}
@@ -311,13 +316,13 @@ public class Spawn1to10 {
 					levelsRemaining--;
 					if (levelsRemaining > 5) {
 						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
-						index = r.nextInt(levelsRemaining - 5);
+						index = levelCounter + 1;
 						levelNumber = levels.get(index);
 						System.out.println("And is changing to: " + levelNumber + "   " + index);
 					}
 					else {
 						System.out.println("Level Number was: " + levelNumber + " And is going up!");
-						index = r.nextInt(levelsRemaining);
+						index = levelCounter + 1;
 						levelNumber = levels.get(index);
 						System.out.println("And is changing to: " + levelNumber);
 					}
@@ -356,13 +361,13 @@ public class Spawn1to10 {
 					levelsRemaining--;
 					if (levelsRemaining > 5) {
 						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
-						index = r.nextInt(levelsRemaining - 5);
+						index = levelCounter + 1;
 						levelNumber = levels.get(index);
 						System.out.println("And is changing to: " + levelNumber + "   " + index);
 					}
 					else {
 						System.out.println("Level Number was: " + levelNumber + " And is going up!");
-						index = r.nextInt(levelsRemaining);
+						index = levelCounter + 1;
 						levelNumber = levels.get(index);
 						System.out.println("And is changing to: " + levelNumber);
 					}
@@ -422,7 +427,7 @@ public class Spawn1to10 {
 				} else {
 					levels.remove(index);
 					levelsRemaining--;
-					index = r.nextInt(levelsRemaining);
+					index = levelCounter + 1;
 					levelNumber = levels.get(index);
 				}
 			}
@@ -479,7 +484,7 @@ public class Spawn1to10 {
 				} else {
 					levels.remove(index);
 					levelsRemaining--;
-					index = r.nextInt(levelsRemaining);
+					index = levelCounter + 1;
 					levelNumber = levels.get(index);
 				}
 			}
@@ -523,7 +528,7 @@ public class Spawn1to10 {
 				} else {
 					levels.remove(index);
 					levelsRemaining--;
-					index = r.nextInt(levelsRemaining);
+					index = levelCounter + 1;
 					levelNumber = levels.get(index);
 				}
 			}
@@ -577,7 +582,7 @@ public class Spawn1to10 {
 				} else {
 					levels.remove(index);
 					levelsRemaining--;
-					index = r.nextInt(levelsRemaining);
+					index = levelCounter + 1;
 					levelNumber = levels.get(index);
 				}
 			}
@@ -627,7 +632,7 @@ public class Spawn1to10 {
 				} else {
 					levels.remove(index);
 					levelsRemaining--;
-					index = r.nextInt(levelsRemaining);
+					index = levelCounter + 1;
 					levelNumber = levels.get(index);
 				}
 			}
@@ -681,11 +686,11 @@ public class Spawn1to10 {
 			levelCounter++;
 			tempCounter = 0;
 			if (levelsRemaining > 5) {
-				index = r.nextInt(levelsRemaining - 5);
+				index = levelCounter + 1;
 				levelNumber = levels.get(index);
 			}
 			else {
-				index = r.nextInt(levelsRemaining);
+				index = levelCounter + 1;
 				levelNumber = levels.get(index);
 			}
 		}
@@ -705,7 +710,7 @@ public static int getRandomInteger(int maximum, int minimum){
 		tempCounter = 0;
 		levelTimer = 150;
 		levelsRemaining = 10;
-		index = r.nextInt(levelsRemaining);
+		index = levelCounter + 1; // = r.nextInt(levelsRemaining);
 	}
 	
 	public int getLevelNumber(){

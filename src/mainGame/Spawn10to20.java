@@ -50,10 +50,11 @@ public class Spawn10to20 {
 		tempCounter = 0;
 		levelCounter = 1;
 		addLevels();
-		index = r.nextInt(randomMax);
+		index = levelsRemaining; //r.nextInt(levelsRemaining); <- this caused the enemies to spawn random
 		levelNumber = 0;
 	}
 
+	
 	public void addLevels() {
 		for (int i = 1; i <= 10; i++) {
 			levels.add(i);
@@ -510,7 +511,7 @@ public class Spawn10to20 {
 		tempCounter = 0;
 		levelTimer = 150;
 		randomMax = 10;
-		index = r.nextInt(randomMax);
+		index ++; //= r.nextInt(randomMax);
 	}
 	
 	public int getLevelNumber(){

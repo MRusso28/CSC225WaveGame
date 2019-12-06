@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 /**
+ * This is the red enemies  
  * A type of enemy in the game
  * 
  * @author Brandon Loehle 5/30/16

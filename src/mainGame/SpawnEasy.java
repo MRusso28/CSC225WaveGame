@@ -35,6 +35,7 @@ public class SpawnEasy {
 	public static boolean spawning = true;
 	private int levelCounter = 1;
 	private LevelText welcomePit;
+	private int randnumber;
 
 	public SpawnEasy(Handler handler, HUD hud, Spawn1to10 spawner, Game game) {
 		this.handler = handler;
@@ -50,7 +51,7 @@ public class SpawnEasy {
 		hud.setLevel(1);
 		tempCounter = 0;
 		addLevels();
-		index = r.nextInt(levelsRemaining);
+		index = 0; // r.nextInt(levelsRemaining);
 		levelNumber = 0;
 		levelCounter = 1;
 	}
@@ -68,6 +69,7 @@ public class SpawnEasy {
 	 * Called once every 60 seconds by the Game loop
 	 */
 	public void tick() {
+		randnumber = (int) getRandomInteger(100, 1);
 		if (game.getPlayerXInt() > (Game.WIDTH - Game.WIDTH/(6 + (2/3)) - 5)) {
 			randx = r.nextInt((Game.WIDTH - (Game.WIDTH - game.getPlayerXInt())) - Game.WIDTH/(6 + (2/3)));
 		} else if (game.getPlayerXInt() < Game.WIDTH/(6 + (2/3)) + 5) {
@@ -116,6 +118,10 @@ public class SpawnEasy {
 		 * Please refer to this bit of code to understand how each level works
 		 * 
 		 */
+		if (levelNumber <= 10 && randnumber == 10) {
+			handler.addPickup(new PickupCoin(getRandomInteger(2000, 1),
+			getRandomInteger(1000, 1), ID.PickupCoin, "images/PickupCoin.PNG", handler, game ));
+		}
 		else if (levelNumber == 1) {// this is level 1
 			if (spawning) {
 				spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a second
@@ -487,6 +493,11 @@ public class SpawnEasy {
 		}
 	}
 
+	private double getRandomInteger(int i, int j) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	public void skipLevel() {
 		if (levelsRemaining == 1) {
 			tempCounter = 0;
@@ -511,7 +522,7 @@ public class SpawnEasy {
 		tempCounter = 0;
 		levelTimer = 150;
 		levelsRemaining = 10;
-		index = r.nextInt(levelsRemaining);
+		index ++;
 	}
 	
 	public int getLevelNumber(){

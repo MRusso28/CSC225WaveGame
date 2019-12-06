@@ -236,7 +236,7 @@ public class MouseListener extends MouseAdapter {
 
 				if (this.mouseOver(mx, my, 550, 850, 900, 200)) {
 					game.gameState = STATE.PauseShop;
-					pause.setDescription("Click on an ability in the Loadout to see its description.");
+					pause.setDescription("Click on an ability in the Loadout to see its description");
 				}
 
 				if (mouseOver(mx, my, 550, 700, 900, 200)) {
