@@ -153,7 +153,7 @@ public class MouseListener extends MouseAdapter {
 			}
 			
 			// Credits
-			else if (mouseOver(mx, my, 80, 435, 850, 250)) {
+			else if (mouseOver(mx, my, 80, 725, 400, 250)) {
 				JOptionPane.showMessageDialog(game,
 						"Made by Brandon Loehle for his "
 								+ "final project in AP Computer Science senior year, 2015 - 2016."
@@ -161,8 +161,16 @@ public class MouseListener extends MouseAdapter {
 								+ " it is 100% playable, enjoy!");
 			}
 			// Quit Button
-			else if (mouseOver(mx, my, 80, 735, 850, 250)) {
+			else if (mouseOver(mx, my, 525, 725, 400, 250)) {
 				System.exit(1);
+			}
+			// Character Customization
+			else if (mouseOver(mx, my, 80, 435, 850, 250)) {
+				game.gameState = STATE.CharacterCustomization;
+			}
+			if (mouseOver(mx, my, 1600, 870, 200, 64)) {
+				game.gameState = STATE.Menu;
+				return;
 			}
 		}
 		// Back Button for Help screen

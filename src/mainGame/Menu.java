@@ -284,6 +284,47 @@ public class Menu {
 			g.drawRect(850, 870, 200, 64);
 			g.drawString("Main", 920, 910);
 
+		} else if (game.gameState == STATE.CharacterCustomization) {
+		
+			Font font = new Font("impact", 1, 50);
+			Font font2 = new Font("impact", 1, 30);
+
+			g.setFont(font);
+			g.setColor(Color.white);
+			g.drawString("CharacterCustomization", 900, 70);
+		
+			//Should be the header of the game
+			g.setFont(font2);
+			g.drawString("Please pick your color.", 40, 200);
+			g.drawString("Select color by clicking on the color's name.", 40, 240);
+		
+			//Should go back Main Menu
+			g.drawRect(1600, 870, 200, 64); // (Xtopleft, Ytopleft, width, height)
+			g.drawString("Main Menu", 1650, 910);
+		
+			//List the type of colors
+			//g.drawRect(1600, 870, 200, 65);
+			g.drawString("Default", 600, 450); //White Color
+			g.setColor(Color.white);
+			g.fillRect(600, 500, 100, 100);
+		
+			//g.drawRect(1600, 870, 200, 65);
+			g.setColor(Color.red);
+			g.drawString("Red", 800, 450);
+			g.setColor(Color.red);
+			g.fillRect(800, 500, 100, 100);
+		
+			//g.drawRect(1600, 870, 200, 65);
+			g.setColor(Color.blue);
+			g.drawString("Blue", 1000, 450);
+			g.setColor(Color.blue);
+			g.fillRect(1000, 500, 100, 100);
+		
+			//g.drawRect(1600, 870, 200, 65);
+			g.setColor(Color.magenta);
+			g.drawString("Purple", 1200, 450);
+			g.setColor(Color.magenta);
+			g.fillRect(1200, 500, 100, 100);
 		}
 	}
 }
