@@ -201,7 +201,7 @@ public class HUD {
 
 
         Font font = new Font("Amoebic", 1, 30);
-        g.setColor(Color.GRAY);
+        g.setColor(Color.BLACK);
         g.fillRect(15, 15, healthBarWidth, 0);
         g.setColor(new Color(75, (int) greenValue, 0, 230));
         g.fillRect(15, 15, (int) health * 4, 64);
