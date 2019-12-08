@@ -24,7 +24,7 @@ public class EnemyBurst extends GameObject {
 		super(x, y, id);
 		this.handler = handler;
 		this.velX = velX;
-		this.velY = vel;
+		this.velY = velY;
 		this.timer = 60;
 		this.side = side;
 		this.size = size;
